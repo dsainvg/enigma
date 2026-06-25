@@ -32,7 +32,11 @@ REF_ROOT    = os.path.abspath(
 
 if not os.path.isdir(REF_ROOT):
     print(f"[SKIP] Reference implementation not found at {REF_ROOT}")
-    sys.exit(0)
+    try:
+        import pytest
+        pytest.skip("Reference implementation not found", allow_module_level=True)
+    except ImportError:
+        sys.exit(0)
 
 sys.path.insert(0, REF_ROOT)
 
@@ -40,7 +44,11 @@ try:
     from encryption_utils.hashing_utils import hashing_passcode as py_hash
 except ImportError as e:
     print(f"[SKIP] Cannot import reference Python impl: {e}")
-    sys.exit(0)
+    try:
+        import pytest
+        pytest.skip(f"Cannot import reference Python impl: {e}", allow_module_level=True)
+    except ImportError:
+        sys.exit(0)
 
 # ── Locate C++ CLI ────────────────────────────────────────────────────────
 

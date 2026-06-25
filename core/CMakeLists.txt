@@ -9,6 +9,8 @@ add_library(enigma_core STATIC
     src/file_io.cpp      # File I/O: encrypt_file / decrypt_file
 )
 
+set_target_properties(enigma_core PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
 target_include_directories(enigma_core
     PUBLIC  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
             $<INSTALL_INTERFACE:include>

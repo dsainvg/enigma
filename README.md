@@ -1,8 +1,8 @@
-﻿# enigmacodebase
+# enigma-encryption
 
-Custom password hashing and file enigmaption — a C++ monorepo that builds:
+Custom password hashing and file encryption — a C++ monorepo that builds:
 
-- 🐍 **`enigma` Python library** → published to [PyPI](https://pypi.org/project/enigma/)
+- 🐍 **`enigma-encryption` Python library** → published to [PyPI](https://pypi.org/project/enigma-encryption/)
 - 💻 **`enigma` CLI tool** → published to [GitHub Releases](../../releases)
 
 All hash and cipher logic lives **exactly once** in `core/`, shared by both outputs.
@@ -12,21 +12,25 @@ All hash and cipher logic lives **exactly once** in `core/`, shared by both outp
 ## Architecture
 
 ```
-enigmacodebase/
+enigma/
 ├── core/               # ✅ Single source of truth
 │   ├── include/enigma/
 │   │   ├── hash.h      # hash_password() API
-│   │   └── cipher.h    # enigmapt/decrypt API
+│   │   ├── cipher.h    # encrypt/decrypt API
+│   │   └── primitives.h # Shared internal byte primitives
 │   └── src/
 │       ├── hash.cpp    # Custom iterative hash algorithm
-│       └── cipher.cpp  # Rotate+XOR cipher (enigma001 format)
+│       ├── salt.cpp    # CSPRNG + salt generation
+│       ├── primitives.cpp # Shared bitwise rotation/manipulation
+│       ├── cipher.cpp  # Symmetric encrypt/decrypt of byte buffers
+│       └── file_io.cpp # Chunked file encryption/decryption
 ├── cli/                # C++ CLI → GitHub Releases
 ├── python/             # pybind11 bindings → PyPI
 ├── tests/
-│   ├── cpp/            # C++ test suite (35+ hash, 30+ cipher)
-│   └── python/         # pytest suite (60+ tests)
+│   ├── cpp/            # C++ test suite (hash + cipher tests)
+│   └── python/         # pytest suite (50+ tests)
 ├── CMakeLists.txt
-├── pyproject.toml      # scikit-build-core
+├── pyproject.toml      # scikit-build-core configuration
 └── .github/workflows/
     ├── ci.yml           # Test on push (Linux, macOS, Windows)
     ├── release-cli.yml  # CLI → GitHub Releases (on tag)
@@ -46,8 +50,8 @@ cmake --build build --parallel
 ./build/cli/enigma hash mypassword
 ./build/cli/enigma hash mypassword 12 myFixedSalt1234
 
-# enigmapt / decrypt files
-./build/cli/enigma enigmapt secrets.txt mypassword
+# Encrypt / decrypt files
+./build/cli/enigma encrypt secrets.txt mypassword
 ./build/cli/enigma decrypt secrets.txt.enc mypassword
 ```
 
@@ -63,7 +67,7 @@ Recommended range: 8–14.
 ### Install
 
 ```bash
-pip install enigma
+pip install enigma-encryption
 ```
 
 ### Usage
@@ -79,14 +83,14 @@ print(h)  # $aBcD1234567890$/$XYZ…
 salt = enigma.extract_salt(h)
 assert enigma.hash_password("mysecret", cost=10, salt=salt) == h
 
-# enigmapt / decrypt bytes
+# Encrypt / decrypt bytes
 data = b"my secret data"
-enc = enigma.enigmapt_bytes(data, "password", cost=10)
+enc = enigma.encrypt_bytes(data, "password", cost=10)
 dec = enigma.decrypt_bytes(enc, "password")
 assert dec == data
 
-# enigmapt / decrypt files
-enigma.enigmapt_file("secret.txt", "secret.enc", "password", cost=10)
+# Encrypt / decrypt files
+enigma.encrypt_file("secret.txt", "secret.enc", "password", cost=10)
 enigma.decrypt_file("secret.enc", "secret.txt", "password")
 ```
 
@@ -101,7 +105,7 @@ enigma.decrypt_file("secret.enc", "secret.txt", "password")
 - Memory-hard: each iteration reads from a 16×N memoization table
 - Output: `$<salt>$/$<hash>` — salt is always embedded
 
-**Cipher** (`enigmapt_bytes` / `enigmapt_file`):
+**Cipher** (`encrypt_bytes` / `encrypt_file`):
 - Password → `hash_password(password, cost, random_salt)` → key
 - Key → `hash_password(key, cost, salt)` → verification hash
 - Data: iterated `rotate_left + XOR` in 1 KB sub-chunks
@@ -117,8 +121,8 @@ cmake -B build && cmake --build build --parallel
 cd build && ctest --output-on-failure
 
 # Python tests
-pip install -e . --no-build-isolation
-pytest tests/python/ -v
+pip install . -v
+python -m pytest tests/python/ -v
 ```
 
 ---
@@ -141,7 +145,7 @@ git push --tags
 
 1. Register at [pypi.org](https://pypi.org)
 2. Go to **Account → Publishing → Add a new pending publisher**
-3. Fill in: GitHub owner, repo `enigmacodebase`, workflow `publish-pypi.yml`, env `pypi`
+3. Fill in: GitHub owner, repo `enigma`, workflow `publish-pypi.yml`, env `pypi`
 4. Push a tag — no secrets needed (Trusted Publishing via OIDC)
 
 ---

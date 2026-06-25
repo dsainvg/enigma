@@ -75,20 +75,20 @@ def section(name: str) -> None:
 # ── CLI helpers ───────────────────────────────────────────────────────────────
 
 def cli_hash(cli: str, password: str, cost: int, salt: str) -> str:
-    """Run: enigma hash <password> <cost> <salt>  -> strip trailing newline."""
+    """Run: enigma hash <password> --cost=<cost> --salt=<salt> -> strip trailing newline."""
     result = subprocess.run(
-        [cli, "hash", password, str(cost), salt],
+        [cli, "hash", password, f"--cost={cost}", f"--salt={salt}"],
         capture_output=True, text=True
     )
     return result.stdout.strip()
 
 def cli_encrypt(cli: str, infile: str, outfile: str, password: str, cost: int = 8) -> int:
-    result = subprocess.run([cli, "encrypt", infile, password, str(cost), outfile],
+    result = subprocess.run([cli, "encrypt", infile, password, f"--cost={cost}", f"--out={outfile}"],
                             capture_output=True)
     return result.returncode
 
 def cli_decrypt(cli: str, infile: str, outfile: str, password: str) -> int:
-    result = subprocess.run([cli, "decrypt", infile, password, outfile],
+    result = subprocess.run([cli, "decrypt", infile, password, f"--out={outfile}"],
                             capture_output=True)
     return result.returncode
 

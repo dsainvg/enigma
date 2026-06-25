@@ -12,13 +12,13 @@
         <meta name="author" content="dsainvg">
       
       
-        <link rel="canonical" href="https://dsainvg.github.io/enigma/security/">
+        <link rel="canonical" href="https://dsainvg.github.io/enigma/performance/">
       
       
-        <link rel="prev" href="../performance/">
+        <link rel="prev" href="../python/">
       
       
-        <link rel="next" href="../dev/">
+        <link rel="next" href="../security/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Security & Warnings - Enigma</title>
+        <title>Performance & Tuning - Enigma</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#security-considerations-warnings" class="md-skip">
+        <a href="#performance-tuning-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Security & Warnings
+              Performance & Tuning
             
           </span>
         </div>
@@ -489,34 +489,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../performance/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Performance & Tuning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -536,7 +508,7 @@
   <span class="md-ellipsis">
     
   
-    Security & Warnings
+    Performance & Tuning
   
 
     
@@ -554,7 +526,7 @@
   <span class="md-ellipsis">
     
   
-    Security & Warnings
+    Performance & Tuning
   
 
     
@@ -580,33 +552,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#strengths" class="md-nav__link">
+  <a href="#how-performance-scales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚡ Strengths
+        How Performance Scales
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-cryptanalysis-warnings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚠️ Limitations &amp; Cryptanalysis Warnings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="⚠️ Limitations &amp; Cryptanalysis Warnings">
+    <nav class="md-nav" aria-label="How Performance Scales">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-custom-cryptographic-algorithms" class="md-nav__link">
+  <a href="#key-derivation-dominates-small-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Custom Cryptographic Algorithms
+        Key derivation dominates small files
       
     </span>
   </a>
@@ -614,10 +575,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-lack-of-authenticated-encryption-aead" class="md-nav__link">
+  <a href="#threading-accelerates-large-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Lack of Authenticated Encryption (AEAD)
+        Threading accelerates large files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer-size-controls-memory-not-throughput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buffer size controls memory, not throughput
       
     </span>
   </a>
@@ -630,13 +602,124 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-guidelines" class="md-nav__link">
+  <a href="#benchmark-results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎓 Recommended Guidelines
+        Benchmark Results
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Benchmark Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hash-benchmarks-full-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash Benchmarks — Full Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-encryption-1-mb-cost8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Encryption — 1 MB (cost=8)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-encryption-64-mb-cost8-single-thread" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Encryption — 64 MB (cost=8, single-thread)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-most-files-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For most files (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-large-files-50-mb-maximum-throughput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For large files (&gt; 50 MB) — maximum throughput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-memory-constrained-systems-512-mb-ram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For memory-constrained systems (&lt; 512 MB RAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-long-term-archive-security-cost14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For long-term archive security (cost=14)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-batch-encryption-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel batch encryption (Python)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -644,6 +727,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Warnings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -879,33 +990,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#strengths" class="md-nav__link">
+  <a href="#how-performance-scales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚡ Strengths
+        How Performance Scales
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limitations-cryptanalysis-warnings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚠️ Limitations &amp; Cryptanalysis Warnings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="⚠️ Limitations &amp; Cryptanalysis Warnings">
+    <nav class="md-nav" aria-label="How Performance Scales">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-custom-cryptographic-algorithms" class="md-nav__link">
+  <a href="#key-derivation-dominates-small-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Custom Cryptographic Algorithms
+        Key derivation dominates small files
       
     </span>
   </a>
@@ -913,10 +1013,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-lack-of-authenticated-encryption-aead" class="md-nav__link">
+  <a href="#threading-accelerates-large-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Lack of Authenticated Encryption (AEAD)
+        Threading accelerates large files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer-size-controls-memory-not-throughput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buffer size controls memory, not throughput
       
     </span>
   </a>
@@ -929,13 +1040,124 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-guidelines" class="md-nav__link">
+  <a href="#benchmark-results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎓 Recommended Guidelines
+        Benchmark Results
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Benchmark Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hash-benchmarks-full-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash Benchmarks — Full Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-encryption-1-mb-cost8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Encryption — 1 MB (cost=8)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-encryption-64-mb-cost8-single-thread" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Encryption — 64 MB (cost=8, single-thread)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommendations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-most-files-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For most files (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-large-files-50-mb-maximum-throughput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For large files (&gt; 50 MB) — maximum throughput
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-memory-constrained-systems-512-mb-ram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For memory-constrained systems (&lt; 512 MB RAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-long-term-archive-security-cost14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For long-term archive security (cost=14)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-batch-encryption-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel batch encryption (Python)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -959,38 +1181,391 @@
   
 
 
-<h1 id="security-considerations-warnings">Security Considerations &amp; Warnings<a class="headerlink" href="#security-considerations-warnings" title="Permanent link">&para;</a></h1>
-<p>The cryptography algorithms in Enigma are <strong>custom-designed</strong> and written without external, peer-reviewed industrial libraries like OpenSSL, Libsodium, or BoringSSL.</p>
-<p>Before using Enigma, it is critical to understand its security properties and target use cases.</p>
+<h1 id="performance-tuning-guide">Performance &amp; Tuning Guide<a class="headerlink" href="#performance-tuning-guide" title="Permanent link">&para;</a></h1>
+<p>Enigma streams files in configurable chunks and distributes cipher block passes
+across multiple threads. This page tells you exactly what to expect and how to
+tune the knobs for your workload.</p>
 <hr />
-<h2 id="strengths">⚡ Strengths<a class="headerlink" href="#strengths" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Iterative Work Factor</strong>: By utilizing a work factor (<code>cost</code>), key derivation requires <span class="arithmatex">\(2^{\text{cost}}\)</span> iterations. This creates computational delays, defending against quick automated dictionary/brute-force attacks.</li>
-<li><strong>Memory-Hard Hashing</strong>: Intermediate rounds reference a stateful lookup matrix (<code>memo</code>). This forces the hashing runner to utilize RAM, reducing the efficiency of custom FPGA/GPU parallel cracking setups.</li>
-<li><strong>No Upstream Dependencies</strong>: A zero-dependency model reduces supply chain threat vectors and eliminates binary loading or dynamic linking issues.</li>
-</ul>
+<h2 id="how-performance-scales">How Performance Scales<a class="headerlink" href="#how-performance-scales" title="Permanent link">&para;</a></h2>
+<h3 id="key-derivation-dominates-small-files">Key derivation dominates small files<a class="headerlink" href="#key-derivation-dominates-small-files" title="Permanent link">&para;</a></h3>
+<p>Every encrypt/decrypt call runs <code>hash_password</code> <strong>once</strong> to derive the key.
+At <code>cost=10</code> this takes ~55–150 ms regardless of file size.
+For files under ~10 MB, key derivation is the dominant cost.</p>
+<table>
+<thead>
+<tr>
+<th>Cost</th>
+<th>Approx. KDF time</th>
+<th>Resistance vs cost=10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>~15–40 ms</td>
+<td>4× easier to brute-force</td>
+</tr>
+<tr>
+<td>10</td>
+<td>~55–150 ms</td>
+<td><strong>Default — good balance</strong></td>
+</tr>
+<tr>
+<td>12</td>
+<td>~240–580 ms</td>
+<td>4× harder</td>
+</tr>
+<tr>
+<td>14</td>
+<td>~1 200–3 000 ms</td>
+<td>16× harder — use for long-term archives</td>
+</tr>
+</tbody>
+</table>
+<h3 id="threading-accelerates-large-files">Threading accelerates large files<a class="headerlink" href="#threading-accelerates-large-files" title="Permanent link">&para;</a></h3>
+<p>Each 1 KB cipher block is independent and can be processed in parallel.
+On large files the cipher work dominates and additional threads help:</p>
+<table>
+<thead>
+<tr>
+<th>File size</th>
+<th>Threads</th>
+<th>Approx. throughput (cost=8)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>64 MB</td>
+<td>1</td>
+<td>~10–13 MB/s</td>
+</tr>
+<tr>
+<td>64 MB</td>
+<td>4</td>
+<td>~30–45 MB/s (estimated)</td>
+</tr>
+<tr>
+<td>64 MB</td>
+<td>all cores</td>
+<td><strong>~60–70 MB/s (estimated)</strong></td>
+</tr>
+<tr>
+<td>1 MB</td>
+<td>1</td>
+<td>~8–9 MB/s</td>
+</tr>
+<tr>
+<td>1 MB</td>
+<td>4</td>
+<td>~18–19 MB/s</td>
+</tr>
+<tr>
+<td>1 MB</td>
+<td>auto(22)</td>
+<td><strong>~22 MB/s</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="buffer-size-controls-memory-not-throughput">Buffer size controls memory, not throughput<a class="headerlink" href="#buffer-size-controls-memory-not-throughput" title="Permanent link">&para;</a></h3>
+<p><code>--buffer-mb</code> controls how much data is held in RAM at once.
+<strong>File size has zero effect on peak memory.</strong> A 500 MB file with <code>--buffer-mb=4</code>
+uses only ~4–8 MB peak RSS.</p>
+<table>
+<thead>
+<tr>
+<th><code>--buffer-mb</code></th>
+<th>Peak RSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>~1–10 MB</td>
+</tr>
+<tr>
+<td>4</td>
+<td>~4–8 MB</td>
+</tr>
+<tr>
+<td>16</td>
+<td>~16–25 MB</td>
+</tr>
+<tr>
+<td>64</td>
+<td>~60–85 MB</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="limitations-cryptanalysis-warnings">⚠️ Limitations &amp; Cryptanalysis Warnings<a class="headerlink" href="#limitations-cryptanalysis-warnings" title="Permanent link">&para;</a></h2>
-<h3 id="1-custom-cryptographic-algorithms">1. Custom Cryptographic Algorithms<a class="headerlink" href="#1-custom-cryptographic-algorithms" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>No Academic Peer Review</strong>: Unlike standard algorithms (such as AES or ChaCha20), Enigma's bitwise whole-buffer rotation and XOR cipher has not undergone extensive academic cryptanalysis or peer evaluation. </li>
-<li><strong>Potential Flaws</strong>: Custom encryption schemes are highly susceptible to mathematical weaknesses, shortcut attacks, or linear/differential cryptanalysis that could compromise keys or plaintext.</li>
-</ul>
-<h3 id="2-lack-of-authenticated-encryption-aead">2. Lack of Authenticated Encryption (AEAD)<a class="headerlink" href="#2-lack-of-authenticated-encryption-aead" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>No Integrity Signature</strong>: Enigma does not support Authenticated Encryption (AEAD) or message authentication codes (MACs). </li>
-<li><strong>Ciphertext Tampering</strong>: If an attacker intercepts your encrypted file and alters bits within the ciphertext, Enigma's decryption engine will not raise a signature validation error. It will proceed to decrypt the altered bytes anyway, producing corrupted/garbage data in the modified segments. Only password verification tags at the header level are validated.</li>
-</ul>
-<hr />
-<h2 id="recommended-guidelines">🎓 Recommended Guidelines<a class="headerlink" href="#recommended-guidelines" title="Permanent link">&para;</a></h2>
+<h2 id="benchmark-results">Benchmark Results<a class="headerlink" href="#benchmark-results" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>[!WARNING]
-Do not use Enigma to secure high-value commercial systems, financial data, health records, or authentication backends.</p>
+<p><strong>Environment:</strong> Python 3.13.9 / 22-core CPU / Windows
+Run with: <code>python benchmarks/bench.py</code></p>
 </blockquote>
-<p>For standard production systems requiring certified security, you should use industry-standard ciphers:
-* <strong>Symmetric Encryption</strong>: Use <strong>AES-GCM-256</strong> or <strong>ChaCha20-Poly1305</strong>.
-* <strong>Password Hashing</strong>: Use <strong>Argon2id</strong> or <strong>scrypt</strong>.
-* <strong>Library Options</strong>: Standard production libraries include <code>PyNaCl</code> (Libsodium) or Python's native <code>cryptography</code> package.</p>
+<h3 id="hash-benchmarks-full-matrix">Hash Benchmarks — Full Matrix<a class="headerlink" href="#hash-benchmarks-full-matrix" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Password len</th>
+<th>Cost</th>
+<th>Avg time (ms)</th>
+<th>Min / Max (ms)</th>
+<th>Throughput (h/s)</th>
+<th>Peak RSS delta (MB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>8</td>
+<td>17.0</td>
+<td>15.8 / 19.6</td>
+<td>58.8</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>8</td>
+<td>10</td>
+<td>68.9</td>
+<td>68.0 / 70.1</td>
+<td>14.5</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>8</td>
+<td>12</td>
+<td>278.5</td>
+<td>274.5 / 283.3</td>
+<td>3.6</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td>8</td>
+<td>14</td>
+<td>2146</td>
+<td>1524 / 2440</td>
+<td>0.5</td>
+<td>0.9</td>
+</tr>
+<tr>
+<td>16</td>
+<td>8</td>
+<td>38.2</td>
+<td>30.8 / 45.4</td>
+<td>26.2</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>16</td>
+<td>10</td>
+<td>150.7</td>
+<td>132.8 / 177.1</td>
+<td>6.6</td>
+<td>5.6</td>
+</tr>
+<tr>
+<td>16</td>
+<td>12</td>
+<td>581.2</td>
+<td>514 / 636</td>
+<td>1.7</td>
+<td>38.6</td>
+</tr>
+<tr>
+<td>16</td>
+<td>14</td>
+<td>1931</td>
+<td>1856 / 2008</td>
+<td>0.5</td>
+<td>46.7</td>
+</tr>
+<tr>
+<td>32</td>
+<td>10</td>
+<td>104.5</td>
+<td>84 / 122</td>
+<td>9.6</td>
+<td>4.6</td>
+</tr>
+<tr>
+<td>64</td>
+<td>10</td>
+<td>123.6</td>
+<td>99 / 151</td>
+<td>8.1</td>
+<td>4.6</td>
+</tr>
+<tr>
+<td>128</td>
+<td>10</td>
+<td>142.3</td>
+<td>110 / 169</td>
+<td>7.0</td>
+<td>4.6</td>
+</tr>
+<tr>
+<td>256</td>
+<td>10</td>
+<td>144.1</td>
+<td>118 / 182</td>
+<td>6.9</td>
+<td>0.1</td>
+</tr>
+<tr>
+<td>512</td>
+<td>10</td>
+<td>65.8</td>
+<td>63.8 / 69.9</td>
+<td>15.2</td>
+<td>4.6</td>
+</tr>
+<tr>
+<td>128</td>
+<td>12</td>
+<td>559.4</td>
+<td>459 / 651</td>
+<td>1.8</td>
+<td>17.5</td>
+</tr>
+<tr>
+<td>256</td>
+<td>14</td>
+<td>1229</td>
+<td>1076 / 1774</td>
+<td>0.8</td>
+<td>28.2</td>
+</tr>
+<tr>
+<td>512</td>
+<td>14</td>
+<td>2482</td>
+<td>1903 / 2712</td>
+<td>0.4</td>
+<td>30.5</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Password length has minimal impact</strong> — cost factor dominates completely.
+A 512-char password at cost=10 takes ~66 ms; an 8-char password at cost=10 takes ~69 ms.</p>
+</div>
+<h3 id="file-encryption-1-mb-cost8">File Encryption — 1 MB (cost=8)<a class="headerlink" href="#file-encryption-1-mb-cost8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Threads</th>
+<th>Buffer (MB)</th>
+<th>Encrypt MB/s</th>
+<th>Decrypt MB/s</th>
+<th>Peak RSS (MB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>8.5</td>
+<td>8.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>9.2</td>
+<td>8.6</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td><strong>14.2</strong></td>
+<td>11.3</td>
+<td>4.1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td><strong>18.7</strong></td>
+<td>13.8</td>
+<td>4.1</td>
+</tr>
+<tr>
+<td>auto (22)</td>
+<td>1</td>
+<td><strong>22.3</strong></td>
+<td>15.1</td>
+<td>1.4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="file-encryption-64-mb-cost8-single-thread">File Encryption — 64 MB (cost=8, single-thread)<a class="headerlink" href="#file-encryption-64-mb-cost8-single-thread" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Threads</th>
+<th>Buffer (MB)</th>
+<th>Encrypt (s)</th>
+<th>Encrypt MB/s</th>
+<th>Peak RSS (MB)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>6.5</td>
+<td>9.9</td>
+<td>9.9</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>5.4</td>
+<td>11.8</td>
+<td>5.1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>32</td>
+<td>5.1</td>
+<td><strong>12.6</strong></td>
+<td>32.0</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">&para;</a></h2>
+<h3 id="for-most-files-default">For most files (default)<a class="headerlink" href="#for-most-files-default" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>enigma<span class="w"> </span>encrypt<span class="w"> </span>file.bin<span class="w"> </span><span class="s2">&quot;password&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># cost=10, threads=1, buffer=4 MB — safe and simple</span>
+</span></code></pre></div>
+<h3 id="for-large-files-50-mb-maximum-throughput">For large files (&gt; 50 MB) — maximum throughput<a class="headerlink" href="#for-large-files-50-mb-maximum-throughput" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>enigma<span class="w"> </span>encrypt<span class="w"> </span>huge.iso<span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="w"> </span>--threads<span class="o">=</span><span class="m">0</span><span class="w"> </span>--buffer-mb<span class="o">=</span><span class="m">4</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># threads=0 = all CPU cores, buffer=4 MB keeps memory low</span>
+</span></code></pre></div>
+<h3 id="for-memory-constrained-systems-512-mb-ram">For memory-constrained systems (&lt; 512 MB RAM)<a class="headerlink" href="#for-memory-constrained-systems-512-mb-ram" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>enigma<span class="w"> </span>encrypt<span class="w"> </span>huge.iso<span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="w"> </span>--threads<span class="o">=</span><span class="m">4</span><span class="w"> </span>--buffer-mb<span class="o">=</span><span class="m">1</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Only ~1–10 MB RAM regardless of file size</span>
+</span></code></pre></div>
+<h3 id="for-long-term-archive-security-cost14">For long-term archive security (cost=14)<a class="headerlink" href="#for-long-term-archive-security-cost14" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>enigma<span class="w"> </span>encrypt<span class="w"> </span>secrets.zip<span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="w"> </span>--cost<span class="o">=</span><span class="m">14</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># ~2 seconds per encrypt/decrypt — deliberately slow for brute-force resistance</span>
+</span></code></pre></div>
+<h3 id="parallel-batch-encryption-python">Parallel batch encryption (Python)<a class="headerlink" href="#parallel-batch-encryption-python" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">enigma</span><span class="o">,</span><span class="w"> </span><span class="nn">threading</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">files</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;a.mp4&quot;</span><span class="p">,</span><span class="s2">&quot;a.enc&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;b.mp4&quot;</span><span class="p">,</span><span class="s2">&quot;b.enc&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;c.mp4&quot;</span><span class="p">,</span><span class="s2">&quot;c.enc&quot;</span><span class="p">)]</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">threads</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">enigma</span><span class="o">.</span><span class="n">encrypt_file</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                     <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="s2">&quot;pass&quot;</span><span class="p">),</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>                     <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;threads&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;io_buf_mb&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">files</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">]</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># GIL is released during file ops — true parallel execution</span>
+</span></code></pre></div>
 
 
 

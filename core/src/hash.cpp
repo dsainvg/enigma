@@ -249,13 +249,13 @@ static HashTuple internal_hash_password(
 char *hash_password(const char *password, int cost, const char *salt) {
     std::vector<std::string> memo;
     std::string current = password;
+    std::string final_salt = salt ? std::string(salt) : generate_salt();
 
     const int iterations = 1 << cost;
     for (int i = 0; i < iterations; ++i) {
-        std::string local_salt = salt ? std::string(salt) : generate_salt();
         // memo.size() == 16*i at this point (before resize), matching Python len(memo)
         auto [hashed, sorted_repr, h1, h2, h3, h4] =
-            internal_hash_password(current, &local_salt, &memo);
+            internal_hash_password(current, &final_salt, &memo);
 
         memo.resize(16 * (i + 1));
 
@@ -268,16 +268,16 @@ char *hash_password(const char *password, int cost, const char *salt) {
         memo[16 * i +  4] = h3;            // hash3 (or hash4 when >47)
         memo[16 * i + 15] = h4;            // hash5 slot
 
-        memo[16 * i +  6] = h4 + h2;       // h5 + hash2
-        memo[16 * i +  7] = h4 + h3;       // h5 + hash3
-        memo[16 * i +  8] = h4 + h3;       // h5 + hash4 — Python uses h5+password[4]
-        memo[16 * i +  9] = h4 + sorted_repr; // h5 + password[1]
+        memo[16 * i +  6] = h4 + h1;       // h5 + hash1
+        memo[16 * i +  7] = h4 + h2;       // h5 + hash2
+        memo[16 * i +  8] = h4 + h3;       // h5 + hash3
+        memo[16 * i +  9] = h4 + sorted_repr; // h5 + sorted_repr
         memo[16 * i + 10] = h4 + hashed;   // h5 + hashed
-        memo[16 * i + 11] = h4 + h2;       // h5 + hash2
-        memo[16 * i + 12] = h1 + h3;       // hash2 + hash3 — Python: password[2]+[3]
-        memo[16 * i + 13] = h1 + h3;       // hash2 + hash4 — Python: password[2]+[4]
-        memo[16 * i + 14] = hashed + sorted_repr; // hashed + password[1]
-        memo[16 * i +  5] = hashed + h3;   // hashed + hash3
+        memo[16 * i + 11] = h4 + h1;       // h5 + hash1
+        memo[16 * i + 12] = h1 + h2;       // hash1 + hash2
+        memo[16 * i + 13] = h1 + h3;       // hash1 + hash3
+        memo[16 * i + 14] = hashed + sorted_repr; // hashed + sorted_repr
+        memo[16 * i +  5] = hashed + h2;   // hashed + hash2
 
         current = hashed;
     }

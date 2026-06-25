@@ -37,7 +37,6 @@ cmake.args = [
     "-DENIGMA_BUILD_TESTS=OFF",
 ]
 wheel.packages = ["python/enigma"]
-install.components = ["python"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests/python"]

@@ -17,6 +17,21 @@
 #include <cstdlib>
 #include <cstring>
 #include <string>
+#include <vector>
+
+#ifdef _WIN32
+#include <windows.h>
+#include <shellapi.h>
+
+static std::string utf16_to_utf8(const wchar_t *wstr) {
+    if (!wstr) return "";
+    int size = WideCharToMultiByte(CP_UTF8, 0, wstr, -1, nullptr, 0, nullptr, nullptr);
+    if (size <= 0) return "";
+    std::string str(size - 1, 0);
+    WideCharToMultiByte(CP_UTF8, 0, wstr, -1, &str[0], size, nullptr, nullptr);
+    return str;
+}
+#endif
 
 static void print_usage(const char *prog) {
     std::printf(
@@ -43,8 +58,8 @@ static int cmd_hash(int argc, char *argv[]) {
     int cost = (argc >= 4) ? std::atoi(argv[3]) : 10;
     const char *salt = (argc >= 5) ? argv[4] : nullptr;
 
-    if (cost < 1 || cost > 31) {
-        std::fprintf(stderr, "Error: cost must be between 1 and 31\n");
+    if (cost < 0 || cost > 31) {
+        std::fprintf(stderr, "Error: cost must be between 0 and 31\n");
         return 1;
     }
 
@@ -71,8 +86,8 @@ static int cmd_encrypt(int argc, char *argv[]) {
     int cost             = (argc >= 5) ? std::atoi(argv[4]) : 10;
     std::string output   = (argc >= 6) ? argv[5] : (std::string(input) + ".enc");
 
-    if (cost < 1 || cost > 31) {
-        std::fprintf(stderr, "Error: cost must be between 1 and 31\n");
+    if (cost < 0 || cost > 31) {
+        std::fprintf(stderr, "Error: cost must be between 0 and 31\n");
         return 1;
     }
 
@@ -111,6 +126,24 @@ static int cmd_decrypt(int argc, char *argv[]) {
 /* ── Entry point ──────────────────────────────────────────────────────────── */
 
 int main(int argc, char *argv[]) {
+#ifdef _WIN32
+    int wargc;
+    wchar_t **wargv = CommandLineToArgvW(GetCommandLineW(), &wargc);
+    std::vector<std::string> args_utf8;
+    std::vector<char*> argv_utf8;
+    if (wargv) {
+        args_utf8.resize(wargc);
+        argv_utf8.resize(wargc);
+        for (int i = 0; i < wargc; ++i) {
+            args_utf8[i] = utf16_to_utf8(wargv[i]);
+            argv_utf8[i] = const_cast<char*>(args_utf8[i].c_str());
+        }
+        LocalFree(wargv);
+        argc = wargc;
+        argv = argv_utf8.data();
+    }
+#endif
+
     if (argc < 2) {
         print_usage(argv[0]);
         return 1;

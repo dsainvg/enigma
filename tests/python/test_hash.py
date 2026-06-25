@@ -45,8 +45,8 @@ class TestPasswordSensitivity:
         assert h1 != h2
 
     def test_case_sensitive(self):
-        h1 = enigma.hash_password("Password", cost=8, salt=SALT)
-        h2 = enigma.hash_password("password", cost=8, salt=SALT)
+        h1 = enigma.hash_password("Password", cost=8, salt="diffsalt12345678")
+        h2 = enigma.hash_password("password", cost=8, salt="diffsalt12345678")
         assert h1 != h2
 
     def test_single_char_passwords_differ(self):

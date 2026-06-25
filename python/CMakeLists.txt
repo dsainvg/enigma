@@ -15,5 +15,14 @@ pybind11_add_module(_enigma bindings.cpp)
 
 target_link_libraries(_enigma PRIVATE enigma_core)
 
-# Install the compiled extension into the enigma/ package directory
-install(TARGETS _enigma LIBRARY DESTINATION enigma)
+if(MINGW)
+    target_link_options(_enigma PRIVATE "-static")
+endif()
+
+# Install the compiled extension into the enigma/ package directory as part of the python component
+install(TARGETS _enigma
+    LIBRARY DESTINATION enigma
+    RUNTIME DESTINATION enigma
+    ARCHIVE DESTINATION enigma
+    COMPONENT python
+)

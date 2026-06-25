@@ -77,66 +77,71 @@ def cli_hash(password: str, cost: int, salt: str) -> str:
                        capture_output=True, text=True, encoding="utf-8")
     return r.stdout.strip()
 
-# ── Parity tests ──────────────────────────────────────────────────────────
+def test_algorithm_parity():
+    section("Hash output parity: C++ CLI vs Python reference")
 
-section("Hash output parity: C++ CLI vs Python reference")
+    CASES = [
+        # (password,       cost, salt)
+        ("password",        8,  "testSalt12345678"),
+        ("",                8,  "aaaaaaaaaaaaaaaa"),
+        ("hello world",     8,  "SaltSaltSaltSalt"),
+        ("p@$$w0rd!123",    8,  "MyFixedSalt12345"),
+        ("abc",             8,  "zzzzzzzzzzzzzzzz"),
+        # Cost=1 (2 iterations) is fast and easy to verify
+        ("password",        1,  "testSalt12345678"),
+        ("singleIter",      0,  "aaaaaaaaaaaaaaaa"),  # cost=0 => 1 iteration
+    ]
 
-CASES = [
-    # (password,       cost, salt)
-    ("password",        8,  "testSalt12345678"),
-    ("",                8,  "aaaaaaaaaaaaaaaa"),
-    ("hello world",     8,  "SaltSaltSaltSalt"),
-    ("p@$$w0rd!123",    8,  "MyFixedSalt12345"),
-    ("abc",             8,  "zzzzzzzzzzzzzzzz"),
-    # Cost=1 (2 iterations) is fast and easy to verify
-    ("password",        1,  "testSalt12345678"),
-    ("singleIter",      0,  "aaaaaaaaaaaaaaaa"),  # cost=0 => 1 iteration
-]
+    for pw, cost, salt in CASES:
+        h_cpp = cli_hash(pw, cost, salt)
+        h_py  = py_hash(pw, cost=cost, salt=salt)
+        check(
+            f"hash('{pw[:14]}', cost={cost}, salt='{salt[:8]}...') match",
+            h_cpp == h_py,
+            f"C++: {h_cpp}\nPy:  {h_py}"
+        )
 
-for pw, cost, salt in CASES:
-    h_cpp = cli_hash(pw, cost, salt)
-    h_py  = py_hash(pw, cost=cost, salt=salt)
-    check(
-        f"hash('{pw[:14]}', cost={cost}, salt='{salt[:8]}...') match",
-        h_cpp == h_py,
-        f"C++: {h_cpp}\nPy:  {h_py}"
-    )
+    # ── Verify extracted salt is stable ──────────────────────────────────────
 
-# ── Verify extracted salt is stable ──────────────────────────────────────
+    section("extract_salt + re-hash determinism (C++ side)")
 
-section("extract_salt + re-hash determinism (C++ side)")
+    SALT = "fixedSalt1234567"
+    h1 = cli_hash("mypassword", 8, SALT)
+    # Extract salt from the CLI output ($salt$/$hash)
+    embedded = h1[1:h1.index("$", 1)]
+    h2 = cli_hash("mypassword", 8, embedded)
+    check("Re-hash with extracted salt == original", h1 == h2,
+          f"Original: {h1}\nRe-hash:  {h2}")
 
-SALT = "fixedSalt1234567"
-h1 = cli_hash("mypassword", 8, SALT)
-# Extract salt from the CLI output ($salt$/$hash)
-embedded = h1[1:h1.index("$", 1)]
-h2 = cli_hash("mypassword", 8, embedded)
-check("Re-hash with extracted salt == original", h1 == h2,
-      f"Original: {h1}\nRe-hash:  {h2}")
+    # ── Specific regression for the hash3 carry-over bug ─────────────────────
 
-# ── Specific regression for the hash3 carry-over bug ─────────────────────
+    section("hash3 carry-over regression (Bug Fix Verification)")
 
-section("hash3 carry-over regression (Bug Fix Verification)")
+    # Before the fix, hash3 was computed with hv=0 (C++) instead of carrying
+    # the residual hv from hash2 (Python).  If the outputs match, the fix is good.
+    # We test multiple passwords to make it unlikely a coincidental match occurs.
+    REGRESSION_CASES = [
+        ("test",     4, "regSalt000000001"),
+        ("abc123",   4, "regSalt000000002"),
+        ("!@#$%",    4, "regSalt000000003"),
+        ("longpass",  4, "regSalt000000004"),
+    ]
 
-# Before the fix, hash3 was computed with hv=0 (C++) instead of carrying
-# the residual hv from hash2 (Python).  If the outputs match, the fix is good.
-# We test multiple passwords to make it unlikely a coincidental match occurs.
-REGRESSION_CASES = [
-    ("test",     4, "regSalt000000001"),
-    ("abc123",   4, "regSalt000000002"),
-    ("!@#$%",    4, "regSalt000000003"),
-    ("longpass",  4, "regSalt000000004"),
-]
+    for pw, cost, salt in REGRESSION_CASES:
+        h_cpp = cli_hash(pw, cost, salt)
+        h_py  = py_hash(pw, cost=cost, salt=salt)
+        match = (h_cpp == h_py)
+        check(f"[regression] hash('{pw}', cost={cost}) matches Python", match,
+              f"C++: {h_cpp}\nPy:  {h_py}")
 
-any_differ_pre = False  # just document: they would have differed before fix
-for pw, cost, salt in REGRESSION_CASES:
-    h_cpp = cli_hash(pw, cost, salt)
-    h_py  = py_hash(pw, cost=cost, salt=salt)
-    match = (h_cpp == h_py)
-    check(f"[regression] hash('{pw}', cost={cost}) matches Python", match,
-          f"C++: {h_cpp}\nPy:  {h_py}")
+    # ── Final report ──────────────────────────────────────────────────────────
 
-# ── Final report ──────────────────────────────────────────────────────────
+    print(f"\n=== Results: {passed} passed, {failed} failed ===")
+    assert failed == 0, f"{failed} algorithm parity checks failed!"
 
-print(f"\n=== Results: {passed} passed, {failed} failed ===")
-sys.exit(1 if failed else 0)
+if __name__ == "__main__":
+    try:
+        test_algorithm_parity()
+        sys.exit(0)
+    except AssertionError:
+        sys.exit(1)

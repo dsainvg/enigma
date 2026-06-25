@@ -5,19 +5,7 @@
          <lastmod>2026-06-25</lastmod>
     </url>
     <url>
-         <loc>https://dsainvg.github.io/enigma/bytes-encryption/</loc>
-         <lastmod>2026-06-25</lastmod>
-    </url>
-    <url>
-         <loc>https://dsainvg.github.io/enigma/cli-reference/</loc>
-         <lastmod>2026-06-25</lastmod>
-    </url>
-    <url>
-         <loc>https://dsainvg.github.io/enigma/file-encryption/</loc>
-         <lastmod>2026-06-25</lastmod>
-    </url>
-    <url>
-         <loc>https://dsainvg.github.io/enigma/hashing/</loc>
+         <loc>https://dsainvg.github.io/enigma/cli/</loc>
          <lastmod>2026-06-25</lastmod>
     </url>
     <url>
@@ -25,11 +13,27 @@
          <lastmod>2026-06-25</lastmod>
     </url>
     <url>
-         <loc>https://dsainvg.github.io/enigma/python-reference/</loc>
+         <loc>https://dsainvg.github.io/enigma/python/</loc>
          <lastmod>2026-06-25</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/security/</loc>
+         <lastmod>2026-06-25</lastmod>
+    </url>
+    <url>
+         <loc>https://dsainvg.github.io/enigma/dev/</loc>
+         <lastmod>2026-06-25</lastmod>
+    </url>
+    <url>
+         <loc>https://dsainvg.github.io/enigma/dev/algorithms/</loc>
+         <lastmod>2026-06-25</lastmod>
+    </url>
+    <url>
+         <loc>https://dsainvg.github.io/enigma/dev/architecture/</loc>
+         <lastmod>2026-06-25</lastmod>
+    </url>
+    <url>
+         <loc>https://dsainvg.github.io/enigma/dev/build/</loc>
          <lastmod>2026-06-25</lastmod>
     </url>
 </urlset>

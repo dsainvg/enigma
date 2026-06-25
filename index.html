@@ -27,7 +27,7 @@
     
     
       
-        <title>Enigma</title>
+        <title>Welcome - Enigma</title>
       
     
     
@@ -52,6 +52,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
       
     
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-enigma" class="md-skip">
+        <a href="#enigma-documentation-portal" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              Welcome
             
           </span>
         </div>
@@ -231,35 +233,16 @@
     
   
   
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Introduction
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
     
     
-      <li class="md-tabs__item">
-        <a href="installation/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="." class="md-tabs__link">
           
   
   
     
   
-  Getting Started
+  User Guide
 
         </a>
       </li>
@@ -275,58 +258,17 @@
     
     
       <li class="md-tabs__item">
-        <a href="hashing/" class="md-tabs__link">
+        <a href="dev/" class="md-tabs__link">
           
   
   
     
   
-  Features
+  Developer Guide
 
         </a>
       </li>
     
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="python-reference/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  API Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="security/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Security & Cryptanalysis
-
-      </a>
-    </li>
   
 
       
@@ -383,22 +325,49 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
+    
+    
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
       
       
         
       
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
           
+          <div class="md-nav__link md-nav__container">
+            <a href="." class="md-nav__link md-nav__link--active">
+              
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    User Guide
   
 
     
@@ -406,130 +375,27 @@
   
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Introduction
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Components
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            </a>
             
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Getting Started
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Getting Started
+    User Guide
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -566,111 +432,14 @@
   
   
     <li class="md-nav__item">
-      <a href="cli-reference/" class="md-nav__link">
+      <a href="cli/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLI Reference
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Features
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Features
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="hashing/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Password Hashing
+    Command Line (CLI)
   
 
     
@@ -691,128 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="file-encryption/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    File Encryption
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="bytes-encryption/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Byte Encryption
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    API Reference
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    API Reference
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="python-reference/" class="md-nav__link">
+      <a href="python/" class="md-nav__link">
         
   
   
@@ -833,6 +481,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Warnings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -846,15 +522,90 @@
   
   
   
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="dev/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="security/" class="md-nav__link">
+      <a href="dev/architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Security & Cryptanalysis
+    Repository Architecture
   
 
     
@@ -863,6 +614,70 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev/algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cryptographic Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev/build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiling & Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -894,10 +709,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#key-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Key Capabilities
       
     </span>
   </a>
@@ -905,10 +720,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
+  <a href="#project-purpose" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core Components
+        Project Purpose
       
     </span>
   </a>
@@ -935,44 +750,26 @@
   
 
 
-<h1 id="introduction-to-enigma">Introduction to Enigma<a class="headerlink" href="#introduction-to-enigma" title="Permanent link">&para;</a></h1>
-<p>Welcome to the <strong>Enigma</strong> developer portal. </p>
-<p>Enigma is a modern, zero-dependency cryptography monorepo featuring a high-performance C++17 core, a standalone command-line interface (CLI), and native Python bindings.</p>
-<pre class="mermaid"><code>graph TD
-    subgraph "Core Cryptography Layer"
-        Core[core/ enigma_core STATIC]
-    end
-    subgraph "Frontend Bindings"
-        CLI[cli/ enigma CLI Binary]
-        Py[python/ _enigma Native Module]
-    end
-    subgraph "Distribution Channels"
-        Pypi[PyPI: enigma-encryption]
-        Github[GitHub Releases: enigma CLI]
-    end
-
-    Core --&gt;|linked| CLI
-    Core --&gt;|linked| Py
-    Py --&gt;|packaged| Pypi
-    CLI --&gt;|packaged| Github</code></pre>
+<h1 id="enigma-documentation-portal">Enigma Documentation Portal<a class="headerlink" href="#enigma-documentation-portal" title="Permanent link">&para;</a></h1>
+<p>Welcome to the official documentation for <strong>Enigma</strong>, a modern, lightweight cryptography system for secure password hashing and symmetric byte/file encryption.</p>
+<p>Enigma is built to deliver native, high-performance cryptographic operations through a secure C++ engine paired with standard Python interfaces.</p>
 <hr />
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<h2 id="key-capabilities">Key Capabilities<a class="headerlink" href="#key-capabilities" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Zero-Dependency Core</strong>: Written in clean, modern C++17 with no runtime dependencies on heavy frameworks like OpenSSL.</li>
-<li><strong>Hybrid Build Architecture</strong>: Utilizes <code>scikit-build-core</code> and CMake to compile pybind11 C++ code into binary Python wheels automatically.</li>
-<li><strong>Symmetric Bitwise Cipher</strong>: Employs an iterated, block-level bitwise rotation and XORing scheme to encrypt and decrypt arbitrary files or byte streams.</li>
-<li><strong>Hardened Password Hashing</strong>: Implements a memory-hard iteration system that resists brute-force and dictionary attacks.</li>
-<li><strong>Full Cross-Compatibility</strong>: Anything encrypted by the C++ CLI tool can be seamlessly decrypted by the Python library (and vice versa).</li>
+<li>🔑 <strong>Secure Password Hashing</strong>: Strengthens user credentials with a memory-hard iteration workflow that defends against GPU-based offline dictionary attacks.</li>
+<li>🔒 <strong>Symmetric File Cipher</strong>: Encrypts and decrypts files of any size using block-level bit rotation and XORing.</li>
+<li>📦 <strong>In-Memory Byte Encryption</strong>: Secures variables and raw byte streams directly in-memory using fast Python bindings.</li>
+<li>💻 <strong>Cross-Platform CLI</strong>: A portable command-line tool compiled for Windows, macOS, and Linux.</li>
+<li>🐍 <strong>Standard Python Extension</strong>: Native speed combined with Pythonic interfaces and exceptions.</li>
+<li>🔄 <strong>Cross-Compatibility</strong>: Decrypt files on the CLI that were encrypted using the Python package, and vice-versa.</li>
 </ul>
 <hr />
-<h2 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h2>
-<p>The repository is structured logically to ensure all cryptographic logic resides in a single, auditable location:</p>
-<ol>
-<li><strong><code>core/</code></strong>: The core static library (<code>libenigma_core</code>). Handles the low-level memory hashing arrays, bit rotation primitives, file chunk parsing, and key-derivation.</li>
-<li><strong><code>cli/</code></strong>: A native executable wrapper exposing commands to hash strings, encrypt files, and decrypt them.</li>
-<li><strong><code>python/</code></strong>: Native extension bindings (<code>pybind11</code>) that build and pack the code into the <code>enigma-encryption</code> package on PyPI.</li>
-<li><strong><code>tests/</code></strong>: Parallel test suites for C++ (<code>ctest</code>) and Python (<code>pytest</code>) ensuring mathematical algorithm parity on every single commit.</li>
-</ol>
+<h2 id="project-purpose">Project Purpose<a class="headerlink" href="#project-purpose" title="Permanent link">&para;</a></h2>
+<p>Enigma was created to provide a lightweight, auditable cryptography tool that runs out of the box with zero runtime dependencies. </p>
+<blockquote>
+<p>[!NOTE]
+Enigma relies on custom-designed encryption and hashing processes. It is designed for educational, utility, and obfuscation use cases, and is <strong>not</strong> recommended for high-security applications where standard AES-GCM or Argon2id systems are required. See the <a href="security/">Security Warnings</a> section for full details.</p>
+</blockquote>
 
 
 

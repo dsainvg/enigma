@@ -1,0 +1,109 @@
+/* Premium Modern Styling for Enigma Docs */
+
+:root {
+  /* Common UI overrides */
+  --md-admonition-icon--note: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23818cf8" d="M13 14h-2V9h2m0 9h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/></svg>');
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Light Theme Customizations
+   ────────────────────────────────────────────────────────────────────────── */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #1e1b4b; /* deep indigo */
+  --md-primary-fg-color--dark: #0f172a;
+  --md-accent-fg-color: #4f46e5;
+  --md-default-bg-color: #fcfcfd;
+  --md-default-fg-color: #1e293b;
+  --md-code-bg-color: #f1f5f9;
+  
+  /* Body styles */
+  background-color: #f8fafc;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Dark Theme Customizations (Sleek Futuristic Dark Mode)
+   ────────────────────────────────────────────────────────────────────────── */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0b0f19; /* premium deep obsidian */
+  --md-primary-fg-color--dark: #070a12;
+  --md-accent-fg-color: #6366f1; /* glowy indigo */
+  
+  --md-default-bg-color: #0d1220; /* rich midnight dark */
+  --md-default-fg-color: #e2e8f0;
+  
+  --md-code-bg-color: #080b15; /* pure dark for code codeblocks */
+  --md-code-fg-color: #cbd5e1;
+
+  --md-typeset-color: #e2e8f0;
+  --md-typeset-a-color: #818cf8;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Premium Layout Customizations
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Glassmorphism Header */
+.md-header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0.96;
+  border-bottom: 1px solid rgba(129, 140, 248, 0.15) !important;
+}
+
+/* Smooth Tab Navigation on Hover */
+.md-tabs__link {
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.md-tabs__link:hover {
+  color: var(--md-accent-fg-color) !important;
+  transform: translateY(-1px);
+}
+
+/* Modern Rounded Codeblocks with glowing shadows */
+.md-typeset pre {
+  border-radius: 12px !important;
+  border: 1px solid rgba(129, 140, 248, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+/* Admonitions styling */
+.md-typeset .admonition {
+  border-radius: 10px;
+  border-left-width: 5px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(129, 140, 248, 0.2);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(129, 140, 248, 0.45);
+}
+
+/* Custom button / navigation highlights */
+.md-button--primary {
+  background-color: var(--md-accent-fg-color) !important;
+  border-color: var(--md-accent-fg-color) !important;
+  border-radius: 6px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.md-button--primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Active sidebar highlights */
+.md-nav__link--active {
+  color: var(--md-accent-fg-color) !important;
+  font-weight: 600;
+}

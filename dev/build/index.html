@@ -12,31 +12,29 @@
         <meta name="author" content="dsainvg">
       
       
-        <link rel="canonical" href="https://dsainvg.github.io/enigma/installation/">
+        <link rel="canonical" href="https://dsainvg.github.io/enigma/dev/build/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../algorithms/">
       
-      
-        <link rel="next" href="../cli/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Installation - Enigma</title>
+        <title>Compiling & Testing - Enigma</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation-guide" class="md-skip">
+        <a href="#compiling-testing-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Enigma" class="md-header__button md-logo" aria-label="Enigma" data-md-component="logo">
+    <a href="../.." title="Enigma" class="md-header__button md-logo" aria-label="Enigma" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              Compiling & Testing
             
           </span>
         </div>
@@ -232,13 +230,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href=".." class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -256,11 +252,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../dev/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -296,7 +294,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Enigma" class="md-nav__button md-logo" aria-label="Enigma" data-md-component="logo">
+    <a href="../.." title="Enigma" class="md-nav__button md-logo" aria-label="Enigma" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -323,8 +321,6 @@
       
   
   
-    
-  
   
   
     
@@ -346,23 +342,22 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href=".." class="md-nav__link ">
+            <a href="../.." class="md-nav__link ">
               
   
   
@@ -380,13 +375,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -403,37 +398,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Installation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
         
   
   
@@ -449,65 +417,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#python-library" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🐍 Python Library
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c-command-line-tool-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        💻 C++ Command-Line Tool (CLI)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="💻 C++ Command-Line Tool (CLI)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#downloading-the-executable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Downloading the Executable
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -520,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -548,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
+      <a href="../../python/" class="md-nav__link">
         
   
   
@@ -576,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+      <a href="../../security/" class="md-nav__link">
         
   
   
@@ -608,6 +517,8 @@
       
   
   
+    
+  
   
   
     
@@ -627,22 +538,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../dev/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -660,13 +572,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -686,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -714,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dev/algorithms/" class="md-nav__link">
+      <a href="../algorithms/" class="md-nav__link">
         
   
   
@@ -739,10 +651,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../dev/build/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiling & Testing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -758,6 +697,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Build Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-compilation-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Local Compilation (C++)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-suites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Testing Suites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧪 Testing Suites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-c-ctest-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. C++ CTest Suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-python-pytest-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Python Pytest Suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-packaging-cibuildwheel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Python Packaging &amp; Cibuildwheel
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -797,10 +828,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python-library" class="md-nav__link">
+  <a href="#build-prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🐍 Python Library
+        🛠️ Build Prerequisites
       
     </span>
   </a>
@@ -808,22 +839,44 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#c-command-line-tool-cli" class="md-nav__link">
+  <a href="#local-compilation-c" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💻 C++ Command-Line Tool (CLI)
+        💻 Local Compilation (C++)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="💻 C++ Command-Line Tool (CLI)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-suites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Testing Suites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧪 Testing Suites">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#downloading-the-executable" class="md-nav__link">
+  <a href="#1-c-ctest-suite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Downloading the Executable
+        1. C++ CTest Suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-python-pytest-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Python Pytest Suite
       
     </span>
   </a>
@@ -832,6 +885,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-packaging-cibuildwheel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Python Packaging &amp; Cibuildwheel
+      
+    </span>
+  </a>
   
 </li>
       
@@ -855,33 +919,53 @@
   
 
 
-<h1 id="installation-guide">Installation Guide<a class="headerlink" href="#installation-guide" title="Permanent link">&para;</a></h1>
-<p>Get up and running with Enigma as a Python library or as a standalone native command-line utility.</p>
+<h1 id="compiling-testing-guide">Compiling &amp; Testing Guide<a class="headerlink" href="#compiling-testing-guide" title="Permanent link">&para;</a></h1>
+<p>This guide describes how to configure your local development environment, compile the C++ binaries, run the testing suites, and manage python packaging.</p>
 <hr />
-<h2 id="python-library">🐍 Python Library<a class="headerlink" href="#python-library" title="Permanent link">&para;</a></h2>
-<p>The official Python package is published as <strong><code>enigma-encryption</code></strong>. It includes pre-compiled binary wheels for all major platforms (Windows, macOS, and Linux) running Python 3.10 to 3.13.</p>
-<p>Install it directly via your package manager:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>enigma-encryption
+<h2 id="build-prerequisites">🛠️ Build Prerequisites<a class="headerlink" href="#build-prerequisites" title="Permanent link">&para;</a></h2>
+<p>Verify that your system has the following tools installed:
+*   <strong>CMake</strong> (v3.18 or newer)
+*   <strong>C++ Compiler</strong> (supporting standard C++17)
+    *   <strong>Windows</strong>: MSVC 2019+ or MinGW-w64 (GCC 8+)
+    *   <strong>macOS</strong>: Apple Clang (Xcode 10.3+)
+    *   <strong>Linux</strong>: GCC 8+ or Clang 7+
+*   <strong>Python</strong> (v3.8 or newer) with <code>pip</code> and <code>virtualenv</code></p>
+<hr />
+<h2 id="local-compilation-c">💻 Local Compilation (C++)<a class="headerlink" href="#local-compilation-c" title="Permanent link">&para;</a></h2>
+<p>To configure, compile, and run the C++ targets:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Configure CMake build tree</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cmake<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 2. Build CLI and tests in parallel</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--parallel
 </span></code></pre></div>
-<p>Once installed, it can be imported in your Python scripts as <code>enigma</code>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">enigma</span>
+<p>The resulting binaries will be created at:
+*   <strong>CLI Executable</strong>: <code>build/cli/enigma</code> (or <code>enigma.exe</code>)
+*   <strong>Test Executable</strong>: <code>build/tests/cpp/hash_tests</code> and <code>cipher_tests</code></p>
+<hr />
+<h2 id="testing-suites">🧪 Testing Suites<a class="headerlink" href="#testing-suites" title="Permanent link">&para;</a></h2>
+<p>Enigma has parallel C++ and Python verification paths.</p>
+<h3 id="1-c-ctest-suite">1. C++ CTest Suite<a class="headerlink" href="#1-c-ctest-suite" title="Permanent link">&para;</a></h3>
+<p>Runs standard regression tests for the core hashing arrays and block rotation states.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>build
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ctest<span class="w"> </span>--output-on-failure
+</span></code></pre></div>
+<h3 id="2-python-pytest-suite">2. Python Pytest Suite<a class="headerlink" href="#2-python-pytest-suite" title="Permanent link">&para;</a></h3>
+<p>Runs verification checks, parameter error boundaries, and algorithm parity checks.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Install the package in editable mode</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--no-build-isolation
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Run the pytest suite</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/python/<span class="w"> </span>-v
 </span></code></pre></div>
 <hr />
-<h2 id="c-command-line-tool-cli">💻 C++ Command-Line Tool (CLI)<a class="headerlink" href="#c-command-line-tool-cli" title="Permanent link">&para;</a></h2>
-<p>For command-line use, you can download the standalone, pre-compiled binary (<code>enigma</code> or <code>enigma.exe</code>) directly. </p>
-<p>This standalone tool requires no compiler or dependencies on your system path.</p>
-<h3 id="downloading-the-executable">Downloading the Executable<a class="headerlink" href="#downloading-the-executable" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Go to the <a href="https://github.com/dsainvg/enigma/releases">GitHub Releases Page</a>.</li>
-<li>Download the binary package corresponding to your operating system:</li>
-<li><strong>Windows</strong>: <code>enigma-windows-amd64.zip</code> (contains <code>enigma.exe</code>)</li>
-<li><strong>macOS</strong>: <code>enigma-macos-universal.tar.gz</code></li>
-<li><strong>Linux</strong>: <code>enigma-linux-amd64.tar.gz</code></li>
-<li>Extract the archive and place the executable in a directory on your system path (e.g., <code>/usr/local/bin</code> on Linux/macOS or a custom folder added to your Windows Path environment variables).</li>
-</ol>
-<p>To verify the installation, open your terminal and run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>enigma<span class="w"> </span>--help
-</span></code></pre></div>
+<h2 id="python-packaging-cibuildwheel">📦 Python Packaging &amp; Cibuildwheel<a class="headerlink" href="#python-packaging-cibuildwheel" title="Permanent link">&para;</a></h2>
+<p>Python packaging is managed by <code>scikit-build-core</code> as defined in <a href="file:///r:/Coding/Projects/Encryption/enigma/pyproject.toml">pyproject.toml</a>.</p>
+<p>When publishing a tag <code>v*.*.*</code> to GitHub:
+1.  <strong>Cibuildwheel</strong> executes across a matrix of <code>ubuntu-latest</code>, <code>macos-latest</code>, and <code>windows-latest</code> runners.
+2.  It builds wheels targeting <strong>Python 3.10, 3.11, 3.12, and 3.13</strong> (<code>cp310-*</code> to <code>cp313-*</code>).
+3.  On Windows, it dynamically builds via MinGW with flags to link C++ runtimes (<code>-static-libgcc</code>, <code>-static-libstdc++</code>, <code>-Wl,-Bstatic,--whole-archive -lwinpthread</code>) statically. This prevents runtime errors on client systems lacking GCC/MinGW runtimes.
+4.  Once built, wheels are automatically uploaded to PyPI using Trusted Publishing.</p>
 
 
 
@@ -937,10 +1021,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "search.highlight", "search.share", "search.suggest", "toc.follow", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "search.highlight", "search.share", "search.suggest", "toc.follow", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

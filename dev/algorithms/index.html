@@ -12,31 +12,31 @@
         <meta name="author" content="dsainvg">
       
       
-        <link rel="canonical" href="https://dsainvg.github.io/enigma/python-reference/">
+        <link rel="canonical" href="https://dsainvg.github.io/enigma/dev/algorithms/">
       
       
-        <link rel="prev" href="../bytes-encryption/">
+        <link rel="prev" href="../architecture/">
       
       
-        <link rel="next" href="../security/">
+        <link rel="next" href="../build/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Python API - Enigma</title>
+        <title>Cryptographic Algorithms - Enigma</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,9 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python-api-reference" class="md-skip">
+        <a href="#cryptographic-algorithms" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Enigma" class="md-header__button md-logo" aria-label="Enigma" data-md-component="logo">
+    <a href="../.." title="Enigma" class="md-header__button md-logo" aria-label="Enigma" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Python API
+              Cryptographic Algorithms
             
           </span>
         </div>
@@ -231,57 +233,16 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Introduction
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
     
     
       <li class="md-tabs__item">
-        <a href="../installation/" class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
     
   
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../hashing/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Features
+  User Guide
 
         </a>
       </li>
@@ -299,36 +260,17 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
     
   
-  API Reference
+  Developer Guide
 
         </a>
       </li>
     
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../security/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Security & Cryptanalysis
-
-      </a>
-    </li>
   
 
       
@@ -354,7 +296,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Enigma" class="md-nav__button md-logo" aria-label="Enigma" data-md-component="logo">
+    <a href="../.." title="Enigma" class="md-nav__button md-logo" aria-label="Enigma" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -383,35 +325,16 @@
   
   
   
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+    
+    
+      
         
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Introduction
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
+          
+        
       
+        
       
-  
-  
-  
-  
-    
-    
+        
       
         
       
@@ -432,17 +355,18 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
     
   
-    Getting Started
+    User Guide
   
 
     
@@ -450,19 +374,27 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Getting Started
+    User Guide
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -471,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../installation/" class="md-nav__link">
         
   
   
@@ -499,111 +431,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli-reference/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLI Reference
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Features
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Features
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../hashing/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Password Hashing
+    Command Line (CLI)
   
 
     
@@ -624,14 +459,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../file-encryption/" class="md-nav__link">
+      <a href="../../python/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    File Encryption
+    Python API
   
 
     
@@ -652,14 +487,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../bytes-encryption/" class="md-nav__link">
+      <a href="../../security/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Byte Encryption
+    Security & Warnings
   
 
     
@@ -690,6 +525,14 @@
   
     
     
+      
+        
+          
+        
+      
+        
+      
+        
       
         
       
@@ -709,17 +552,18 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
     
   
-    API Reference
+    Developer Guide
   
 
     
@@ -727,19 +571,55 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    API Reference
+    Developer Guide
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Repository Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -764,7 +644,7 @@
   <span class="md-ellipsis">
     
   
-    Python API
+    Cryptographic Algorithms
   
 
     
@@ -782,7 +662,7 @@
   <span class="md-ellipsis">
     
   
-    Python API
+    Cryptographic Algorithms
   
 
     
@@ -808,22 +688,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hashing-functions" class="md-nav__link">
+  <a href="#hashing-internals" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔑 Hashing Functions
+        🔑 Hashing Internals
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔑 Hashing Functions">
+    <nav class="md-nav" aria-label="🔑 Hashing Internals">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hash_password" class="md-nav__link">
+  <a href="#1-hash1-character-mixing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        hash_password
+        1. hash1 (Character Mixing)
       
     </span>
   </a>
@@ -831,10 +711,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#extract_salt" class="md-nav__link">
+  <a href="#2-permutation-step" class="md-nav__link">
     <span class="md-ellipsis">
       
-        extract_salt
+        2. Permutation Step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hash2-polynomial-hash-base-71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. hash2 (Polynomial Hash, Base 71)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hash3-polynomial-hash-base-997" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. hash3 (Polynomial Hash, Base 997)
       
     </span>
   </a>
@@ -847,22 +749,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#encryption-decryption-functions" class="md-nav__link">
+  <a href="#cipher-internals-rotate-xor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔒 Encryption &amp; Decryption Functions
+        🔒 Cipher Internals (Rotate + XOR)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔒 Encryption &amp; Decryption Functions">
+    <nav class="md-nav" aria-label="🔒 Cipher Internals (Rotate + XOR)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#encrypt_bytes" class="md-nav__link">
+  <a href="#1-rounds-calculation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        encrypt_bytes
+        1. Rounds Calculation
       
     </span>
   </a>
@@ -870,32 +772,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#decrypt_bytes" class="md-nav__link">
+  <a href="#2-rotation-and-xor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        decrypt_bytes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encrypt_file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        encrypt_file
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decrypt_file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        decrypt_file
+        2. Rotation and XOR
       
     </span>
   </a>
@@ -904,6 +784,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enigma01-binary-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💾 ENIGMA01 Binary Format
+      
+    </span>
+  </a>
   
 </li>
       
@@ -916,28 +807,21 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+      <a href="../build/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Security & Cryptanalysis
+    Compiling & Testing
   
 
     
@@ -946,6 +830,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -977,22 +869,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hashing-functions" class="md-nav__link">
+  <a href="#hashing-internals" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔑 Hashing Functions
+        🔑 Hashing Internals
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔑 Hashing Functions">
+    <nav class="md-nav" aria-label="🔑 Hashing Internals">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hash_password" class="md-nav__link">
+  <a href="#1-hash1-character-mixing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        hash_password
+        1. hash1 (Character Mixing)
       
     </span>
   </a>
@@ -1000,10 +892,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#extract_salt" class="md-nav__link">
+  <a href="#2-permutation-step" class="md-nav__link">
     <span class="md-ellipsis">
       
-        extract_salt
+        2. Permutation Step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hash2-polynomial-hash-base-71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. hash2 (Polynomial Hash, Base 71)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hash3-polynomial-hash-base-997" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. hash3 (Polynomial Hash, Base 997)
       
     </span>
   </a>
@@ -1016,22 +930,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#encryption-decryption-functions" class="md-nav__link">
+  <a href="#cipher-internals-rotate-xor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔒 Encryption &amp; Decryption Functions
+        🔒 Cipher Internals (Rotate + XOR)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔒 Encryption &amp; Decryption Functions">
+    <nav class="md-nav" aria-label="🔒 Cipher Internals (Rotate + XOR)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#encrypt_bytes" class="md-nav__link">
+  <a href="#1-rounds-calculation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        encrypt_bytes
+        1. Rounds Calculation
       
     </span>
   </a>
@@ -1039,32 +953,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#decrypt_bytes" class="md-nav__link">
+  <a href="#2-rotation-and-xor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        decrypt_bytes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encrypt_file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        encrypt_file
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#decrypt_file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        decrypt_file
+        2. Rotation and XOR
       
     </span>
   </a>
@@ -1073,6 +965,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enigma01-binary-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💾 ENIGMA01 Binary Format
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1096,85 +999,61 @@
   
 
 
-<h1 id="python-api-reference">Python API Reference<a class="headerlink" href="#python-api-reference" title="Permanent link">&para;</a></h1>
-<p>The <code>enigma</code> module is a compiled native C++ extension that provides high-speed cryptography wrappers.</p>
+<h1 id="cryptographic-algorithms">Cryptographic Algorithms<a class="headerlink" href="#cryptographic-algorithms" title="Permanent link">&para;</a></h1>
+<p>This section details the custom cryptographic processes implemented inside Enigma's core engine.</p>
 <hr />
-<h2 id="hashing-functions">🔑 Hashing Functions<a class="headerlink" href="#hashing-functions" title="Permanent link">&para;</a></h2>
-<h3 id="hash_password"><code>hash_password</code><a class="headerlink" href="#hash_password" title="Permanent link">&para;</a></h3>
-<p>Hashes a password string using the iterative, memory-hard hashing algorithm.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">hash_password</span><span class="p">(</span><span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cost</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">salt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span></code></pre></div>
-<ul>
-<li><strong>Parameters</strong>:</li>
-<li><code>password</code> (<code>str</code>): The credential to hash.</li>
-<li><code>cost</code> (<code>int</code>, optional): Work factor ($2^{\text{cost}}$ iterations). Default is <code>10</code>.</li>
-<li><code>salt</code> (<code>str</code>, optional): A 16-character salt. If omitted, a secure random salt is generated.</li>
-<li><strong>Returns</strong>: <code>str</code> formatted as <code>$&lt;salt&gt;$/$&lt;hash&gt;</code>.</li>
-<li><strong>Raises</strong>: <code>ValueError</code> if <code>cost</code> is out of bounds ($0 \dots 31$) or if the custom <code>salt</code> is not exactly 16 characters.</li>
-</ul>
+<h2 id="hashing-internals">🔑 Hashing Internals<a class="headerlink" href="#hashing-internals" title="Permanent link">&para;</a></h2>
+<p>The hashing routine <code>internal_hash_password</code> mixes inputs into printable ASCII sequences using modular math and polynomial equations.</p>
+<h3 id="1-hash1-character-mixing">1. <code>hash1</code> (Character Mixing)<a class="headerlink" href="#1-hash1-character-mixing" title="Permanent link">&para;</a></h3>
+<p>Processes the initial byte sequence $S = \text{salt} + \text{"$"} + \text{password}$:</p>
+<p>$$\text{accumulator} = \text{seed}$$</p>
+<p>For each byte $b_j$ in the sequence:</p>
+<p>$$\text{val} = \text{accumulator} \times 113 + b_j$$</p>
+<p>$$\text{accumulator} = \text{accumulator} + 2 \pmod{23}$$</p>
+<p>$$\text{char_code} = (\text{val} \pmod{90}) \ \&amp; \ \left( \left\lfloor \frac{\text{val}}{90} \right\rfloor \pmod{90} + 37 \right)$$</p>
+<p>The resulting <code>char_code</code> byte is emitted to the output buffer <code>hash1</code>.</p>
+<h3 id="2-permutation-step">2. Permutation Step<a class="headerlink" href="#2-permutation-step" title="Permanent link">&para;</a></h3>
+<p>Removes elements from <code>hash1</code> one-by-one at cyclic offsets:</p>
+<p>$$\text{index} = (\text{current} + n - 1) \pmod{\text{size}}$$</p>
+<p>This produces a specific permutation of the character array rather than a standard sort.</p>
+<h3 id="3-hash2-polynomial-hash-base-71">3. <code>hash2</code> (Polynomial Hash, Base 71)<a class="headerlink" href="#3-hash2-polynomial-hash-base-71" title="Permanent link">&para;</a></h3>
+<p>Computes a base-71 polynomial value:</p>
+<p>$$hv_{next} = hv \times 71 + b_k$$</p>
+<p>For each generated state, we emit printable ASCII codes by extracting digits:
+$$\text{code} = (hv \pmod{90}) + 37$$</p>
+<p>$$hv = \left\lfloor \frac{hv}{90} \right\rfloor$$</p>
+<h3 id="4-hash3-polynomial-hash-base-997">4. <code>hash3</code> (Polynomial Hash, Base 997)<a class="headerlink" href="#4-hash3-polynomial-hash-base-997" title="Permanent link">&para;</a></h3>
+<p>Computes a base-997 polynomial hash. </p>
+<blockquote>
+<p>[!IMPORTANT]
+To preserve state dependency, the final value of the accumulator $hv$ from <code>hash2</code> is <strong>not</strong> reset; it is carried directly into <code>hash3</code> as the starting accumulator seed.</p>
+</blockquote>
 <hr />
-<h3 id="extract_salt"><code>extract_salt</code><a class="headerlink" href="#extract_salt" title="Permanent link">&para;</a></h3>
-<p>Extracts the embedded 16-character salt from a formatted Enigma hash string.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">extract_salt</span><span class="p">(</span><span class="n">hash_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span></code></pre></div>
-<ul>
-<li><strong>Parameters</strong>:</li>
-<li><code>hash_str</code> (<code>str</code>): The full Enigma hash string (e.g. <code>"$J&amp;%Z1n_N/boCGJef$/$aBcD..."</code>).</li>
-<li><strong>Returns</strong>: <code>str</code> of length 16 (the salt string).</li>
-<li><strong>Raises</strong>: <code>ValueError</code> if the hash string does not conform to the expected format.</li>
-</ul>
+<h2 id="cipher-internals-rotate-xor">🔒 Cipher Internals (Rotate + XOR)<a class="headerlink" href="#cipher-internals-rotate-xor" title="Permanent link">&para;</a></h2>
+<p>The cipher divides files and buffers into <strong>1024-byte chunks</strong> (blocks). </p>
+<h3 id="1-rounds-calculation">1. Rounds Calculation<a class="headerlink" href="#1-rounds-calculation" title="Permanent link">&para;</a></h3>
+<p>For each block at index $i$:</p>
+<p>$$\text{Rounds} = 10 + (i \pmod 6)$$</p>
+<p>This ensures that consecutive blocks are processed with varying iteration depths ($10 \le \text{Rounds} \le 15$), breaking static pattern analysis.</p>
+<h3 id="2-rotation-and-xor">2. Rotation and XOR<a class="headerlink" href="#2-rotation-and-xor" title="Permanent link">&para;</a></h3>
+<p>In each round $n$:</p>
+<ol>
+<li><strong>Shift Calculation</strong>: The block is rotated left bitwise by:
+    $$\text{shift} = 1 + ((\text{key_byte}[n] + n) \pmod 7) \text{ bits}$$</li>
+<li><strong>Bitwise Left Rotation</strong>: Bits are shifted left across the entire 1 KB block. The overflow bits of byte $j$ are carried over into byte $j-1$, and the leftmost bits of byte 0 are wrapped around to the rightmost positions of byte 1023.</li>
+<li><strong>XOR</strong>: Each byte of the rotated block is XORed with the corresponding derived key byte.</li>
+</ol>
 <hr />
-<h2 id="encryption-decryption-functions">🔒 Encryption &amp; Decryption Functions<a class="headerlink" href="#encryption-decryption-functions" title="Permanent link">&para;</a></h2>
-<h3 id="encrypt_bytes"><code>encrypt_bytes</code><a class="headerlink" href="#encrypt_bytes" title="Permanent link">&para;</a></h3>
-<p>Encrypts an in-memory byte buffer.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">encrypt_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cost</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<h2 id="enigma01-binary-format">💾 <code>ENIGMA01</code> Binary Format<a class="headerlink" href="#enigma01-binary-format" title="Permanent link">&para;</a></h2>
+<p>All integers are stored in <strong>Little-Endian</strong> byte order.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>+------------------+------------------+-------------------+-----------------+
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>| Magic Header     | Salt Length      | Salt String       | Cost Factor     |
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>| &quot;ENIGMA01&quot; (8B)  | uint16 (2B)      | ASCII (16B)       | uint16 (2B)     |
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>+------------------+------------------+-------------------+-----------------+
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>| Verify Tag Len   | Verify Tag       | Encrypted Data Chunks               |
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>| uint16 (2B)      | ASCII (Var)      | 1 KB Sequential Blocks (Var)        |
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+------------------+------------------+-------------------+-----------------+
 </span></code></pre></div>
-<ul>
-<li><strong>Parameters</strong>:</li>
-<li><code>data</code> (<code>bytes</code> / <code>bytearray</code>): The raw plaintext buffer.</li>
-<li><code>password</code> (<code>str</code>): Password used to derive the encryption key.</li>
-<li><code>cost</code> (<code>int</code>, optional): Work factor used for key derivation. Default is <code>10</code>.</li>
-<li><strong>Returns</strong>: <code>bytes</code> containing the <code>ENIGMA01</code> binary header and ciphertext.</li>
-</ul>
-<hr />
-<h3 id="decrypt_bytes"><code>decrypt_bytes</code><a class="headerlink" href="#decrypt_bytes" title="Permanent link">&para;</a></h3>
-<p>Decrypts an in-memory byte buffer.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">decrypt_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
-</span></code></pre></div>
-<ul>
-<li><strong>Parameters</strong>:</li>
-<li><code>data</code> (<code>bytes</code> / <code>bytearray</code>): The encrypted byte buffer (must contain valid <code>ENIGMA01</code> header).</li>
-<li><code>password</code> (<code>str</code>): Password to verify and decrypt the buffer.</li>
-<li><strong>Returns</strong>: <code>bytes</code> containing the decrypted plaintext.</li>
-<li><strong>Raises</strong>: <code>ValueError</code> if password verification fails, or if the header format is corrupted.</li>
-</ul>
-<hr />
-<h3 id="encrypt_file"><code>encrypt_file</code><a class="headerlink" href="#encrypt_file" title="Permanent link">&para;</a></h3>
-<p>Encrypts a file on disk.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">encrypt_file</span><span class="p">(</span><span class="n">input_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cost</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></code></pre></div>
-<ul>
-<li><strong>Parameters</strong>:</li>
-<li><code>input_path</code> (<code>str</code>): Path to the plaintext input file.</li>
-<li><code>output_path</code> (<code>str</code>): Path to save the encrypted output file.</li>
-<li><code>password</code> (<code>str</code>): Password for key derivation.</li>
-<li><code>cost</code> (<code>int</code>, optional): Key derivation work factor. Default is <code>10</code>.</li>
-<li><strong>Raises</strong>: <code>IOError</code> if input/output files cannot be opened.</li>
-</ul>
-<hr />
-<h3 id="decrypt_file"><code>decrypt_file</code><a class="headerlink" href="#decrypt_file" title="Permanent link">&para;</a></h3>
-<p>Decrypts a file on disk.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">decrypt_file</span><span class="p">(</span><span class="n">input_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></code></pre></div>
-<ul>
-<li><strong>Parameters</strong>:</li>
-<li><code>input_path</code> (<code>str</code>): Path to the encrypted file.</li>
-<li><code>output_path</code> (<code>str</code>): Path to save the decrypted output file.</li>
-<li><code>password</code> (<code>str</code>): Password for verification and decryption.</li>
-<li><strong>Raises</strong>:</li>
-<li><code>ValueError</code> if password verification fails.</li>
-<li><code>IOError</code> if files cannot be opened.</li>
-</ul>
 
 
 
@@ -1230,10 +1109,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "search.highlight", "search.share", "search.suggest", "toc.follow", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "navigation.indexes", "navigation.instant", "search.highlight", "search.share", "search.suggest", "toc.follow", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

@@ -12,13 +12,13 @@
         <meta name="author" content="dsainvg">
       
       
-        <link rel="canonical" href="https://dsainvg.github.io/enigma/file-encryption/">
+        <link rel="canonical" href="https://dsainvg.github.io/enigma/cli/">
       
       
-        <link rel="prev" href="../hashing/">
+        <link rel="prev" href="../installation/">
       
       
-        <link rel="next" href="../bytes-encryption/">
+        <link rel="next" href="../python/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>File Encryption - Enigma</title>
+        <title>Command Line (CLI) - Enigma</title>
       
     
     
@@ -54,6 +54,8 @@
         <style>:root{--md-text-font:"Inter";--md-code-font:"Fira Code"}</style>
       
     
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -80,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-encryption" class="md-skip">
+        <a href="#command-line-interface-cli" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              File Encryption
+              Command Line (CLI)
             
           </span>
         </div>
@@ -230,60 +232,19 @@
   
   
   
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Introduction
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../installation/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
     
   
   
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../hashing/" class="md-tabs__link">
+        <a href=".." class="md-tabs__link">
           
   
   
     
   
-  Features
+  User Guide
 
         </a>
       </li>
@@ -299,36 +260,17 @@
     
     
       <li class="md-tabs__item">
-        <a href="../python-reference/" class="md-tabs__link">
+        <a href="../dev/" class="md-tabs__link">
           
   
   
     
   
-  API Reference
+  Developer Guide
 
         </a>
       </li>
     
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../security/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Security & Cryptanalysis
-
-      </a>
-    </li>
   
 
       
@@ -381,162 +323,18 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
     
-  
-    Introduction
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
   
   
   
     
     
       
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Getting Started
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Getting Started
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Installation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cli-reference/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI Reference
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
+        
       
         
       
@@ -560,17 +358,18 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
   
   
   <span class="md-ellipsis">
     
   
-    Features
+    User Guide
   
 
     
@@ -578,19 +377,27 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Features
+    User Guide
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
             
               
                 
@@ -599,14 +406,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../hashing/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Password Hashing
+    Installation
   
 
     
@@ -643,7 +450,7 @@
   <span class="md-ellipsis">
     
   
-    File Encryption
+    Command Line (CLI)
   
 
     
@@ -661,7 +468,7 @@
   <span class="md-ellipsis">
     
   
-    File Encryption
+    Command Line (CLI)
   
 
     
@@ -687,10 +494,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-enigma01-file-format" class="md-nav__link">
+  <a href="#global-command-syntax" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💾 The ENIGMA01 File Format
+        🛠️ Global Command Syntax
       
     </span>
   </a>
@@ -698,24 +505,152 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-usage" class="md-nav__link">
+  <a href="#hash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🐍 Python Usage
+        🔑 hash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 hash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntax
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-usage" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💻 CLI Usage
+        Arguments
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encrypt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔒 encrypt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 encrypt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decrypt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔓 decrypt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔓 decrypt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -735,100 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bytes-encryption/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Byte Encryption
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    API Reference
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    API Reference
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../python-reference/" class="md-nav__link">
+      <a href="../python/" class="md-nav__link">
         
   
   
@@ -849,6 +691,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & Warnings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -862,15 +732,90 @@
   
   
   
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../dev/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+      <a href="../dev/architecture/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Security & Cryptanalysis
+    Repository Architecture
   
 
     
@@ -879,6 +824,70 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cryptographic Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev/build/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiling & Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -910,10 +919,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-enigma01-file-format" class="md-nav__link">
+  <a href="#global-command-syntax" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💾 The ENIGMA01 File Format
+        🛠️ Global Command Syntax
       
     </span>
   </a>
@@ -921,24 +930,152 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-usage" class="md-nav__link">
+  <a href="#hash" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🐍 Python Usage
+        🔑 hash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 hash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntax
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-usage" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💻 CLI Usage
+        Arguments
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encrypt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔒 encrypt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 encrypt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decrypt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔓 decrypt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔓 decrypt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -962,98 +1099,77 @@
   
 
 
-<h1 id="file-encryption">File Encryption<a class="headerlink" href="#file-encryption" title="Permanent link">&para;</a></h1>
-<p>Enigma provides file-based encryption that secures files of any size by breaking them down into small, manageable chunks and wrapping them in the custom <code>ENIGMA01</code> binary format.</p>
+<h1 id="command-line-interface-cli">Command Line Interface (CLI)<a class="headerlink" href="#command-line-interface-cli" title="Permanent link">&para;</a></h1>
+<p>The native command-line utility provides terminal-based operations to hash passwords, encrypt files, and decrypt files.</p>
 <hr />
-<h2 id="the-enigma01-file-format">💾 The <code>ENIGMA01</code> File Format<a class="headerlink" href="#the-enigma01-file-format" title="Permanent link">&para;</a></h2>
-<p>Encrypted files are structured with a custom binary header containing metadata for key derivation and integrity checks, followed by the encrypted payload.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Offset (Bytes)</th>
-<th style="text-align: left;">Size (Bytes)</th>
-<th style="text-align: left;">Field Name</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>0</code></td>
-<td style="text-align: left;"><code>8</code></td>
-<td style="text-align: left;"><strong>Magic Header</strong></td>
-<td style="text-align: left;">Must match the ASCII bytes <code>"ENIGMA01"</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>8</code></td>
-<td style="text-align: left;"><code>2</code> (LE)</td>
-<td style="text-align: left;"><strong>Salt Length</strong></td>
-<td style="text-align: left;">Length of the salt string (always 16)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>10</code></td>
-<td style="text-align: left;"><code>16</code></td>
-<td style="text-align: left;"><strong>Salt</strong></td>
-<td style="text-align: left;">Printable ASCII characters used for hashing</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>26</code></td>
-<td style="text-align: left;"><code>2</code> (LE)</td>
-<td style="text-align: left;"><strong>Cost</strong></td>
-<td style="text-align: left;">Hashing work factor (cost)</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>28</code></td>
-<td style="text-align: left;"><code>2</code> (LE)</td>
-<td style="text-align: left;"><strong>Verify Length</strong></td>
-<td style="text-align: left;">Length of the validation tag</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>30</code></td>
-<td style="text-align: left;">Variable</td>
-<td style="text-align: left;"><strong>Verify Tag</strong></td>
-<td style="text-align: left;">Hash-of-hash string for quick password checking</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>30 + TagLen</code></td>
-<td style="text-align: left;">Remaining</td>
-<td style="text-align: left;"><strong>Encrypted Data</strong></td>
-<td style="text-align: left;">Sequentially encrypted data chunks (1 KB each)</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>[!IMPORTANT]
-<code>LE</code> denotes Little-Endian byte order. The verification tag allows the cipher to immediately determine if the user provided the correct password before modifying files or allocating memory for decryption.</p>
-</blockquote>
+<h2 id="global-command-syntax">🛠️ Global Command Syntax<a class="headerlink" href="#global-command-syntax" title="Permanent link">&para;</a></h2>
+<p>The executable (<code>enigma</code> or <code>enigma.exe</code>) is invoked as follows:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>enigma<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>arguments...<span class="o">]</span>
+</span></code></pre></div>
+<p>Exposed commands:
+* <strong><code>hash</code></strong>: Hash a password credentials string.
+* <strong><code>encrypt</code></strong>: Encrypt any file.
+* <strong><code>decrypt</code></strong>: Decrypt an encrypted file.</p>
 <hr />
-<h2 id="python-usage">🐍 Python Usage<a class="headerlink" href="#python-usage" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">enigma</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Encrypt a file (default cost=10)</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">enigma</span><span class="o">.</span><span class="n">encrypt_file</span><span class="p">(</span><span class="s2">&quot;secrets.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;secrets.enc&quot;</span><span class="p">,</span> <span class="s2">&quot;MyPassword123&quot;</span><span class="p">)</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Decrypt the file back to plaintext</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">enigma</span><span class="o">.</span><span class="n">decrypt_file</span><span class="p">(</span><span class="s2">&quot;secrets.enc&quot;</span><span class="p">,</span> <span class="s2">&quot;secrets_decrypted.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;MyPassword123&quot;</span><span class="p">)</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Wrong password check:</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">try</span><span class="p">:</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">enigma</span><span class="o">.</span><span class="n">decrypt_file</span><span class="p">(</span><span class="s2">&quot;secrets.enc&quot;</span><span class="p">,</span> <span class="s2">&quot;secrets_decrypted.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;WrongPassword&quot;</span><span class="p">)</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Decryption failed:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="c1"># Wrong password</span>
+<h2 id="hash">🔑 <code>hash</code><a class="headerlink" href="#hash" title="Permanent link">&para;</a></h2>
+<p>Generate an Enigma password hash.</p>
+<h3 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>enigma<span class="w"> </span><span class="nb">hash</span><span class="w"> </span>&lt;password&gt;<span class="w"> </span><span class="o">[</span>cost<span class="o">]</span><span class="w"> </span><span class="o">[</span>salt<span class="o">]</span>
+</span></code></pre></div>
+<h3 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>&lt;password&gt;</code></strong> (Required): The password string to hash.</li>
+<li><strong><code>[cost]</code></strong> (Optional, default <code>10</code>): The work factor factor ($2^{\text{cost}}$ iterations). Must be between <code>0</code> and <code>31</code>.</li>
+<li><strong><code>[salt]</code></strong> (Optional): A 16-character salt string. If omitted, a cryptographically secure random salt is generated.</li>
+</ul>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Hash a password using default cost 10 and a random salt:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>enigma<span class="w"> </span><span class="nb">hash</span><span class="w"> </span><span class="s2">&quot;mySecurePassword&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Hash a password with custom cost 12:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>enigma<span class="w"> </span><span class="nb">hash</span><span class="w"> </span><span class="s2">&quot;mySecurePassword&quot;</span><span class="w"> </span><span class="m">12</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Hash a password using a fixed salt:</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>enigma<span class="w"> </span><span class="nb">hash</span><span class="w"> </span><span class="s2">&quot;mySecurePassword&quot;</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="s2">&quot;fixedSalt1234567&quot;</span>
 </span></code></pre></div>
 <hr />
-<h2 id="cli-usage">💻 CLI Usage<a class="headerlink" href="#cli-usage" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Encrypt &#39;document.pdf&#39; to &#39;document.pdf.enc&#39; using password and cost 12</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>enigma<span class="w"> </span>encrypt<span class="w"> </span>document.pdf<span class="w"> </span><span class="s2">&quot;MyPassword123&quot;</span><span class="w"> </span><span class="m">12</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Encrypt specifying a custom output filename:</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>enigma<span class="w"> </span>encrypt<span class="w"> </span>document.pdf<span class="w"> </span><span class="s2">&quot;MyPassword123&quot;</span><span class="w"> </span><span class="m">12</span><span class="w"> </span>secure_document.enc
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Decrypt the document:</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>enigma<span class="w"> </span>decrypt<span class="w"> </span>secure_document.enc<span class="w"> </span><span class="s2">&quot;MyPassword123&quot;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Decrypt specifying a custom output filename:</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>enigma<span class="w"> </span>decrypt<span class="w"> </span>secure_document.enc<span class="w"> </span><span class="s2">&quot;MyPassword123&quot;</span><span class="w"> </span>restored_document.pdf
+<h2 id="encrypt">🔒 <code>encrypt</code><a class="headerlink" href="#encrypt" title="Permanent link">&para;</a></h2>
+<p>Encrypt any file. By default, it outputs a file with an <code>.enc</code> extension using the custom <code>ENIGMA01</code> binary format.</p>
+<h3 id="syntax_1">Syntax<a class="headerlink" href="#syntax_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>enigma<span class="w"> </span>encrypt<span class="w"> </span>&lt;file&gt;<span class="w"> </span>&lt;password&gt;<span class="w"> </span><span class="o">[</span>cost<span class="o">]</span><span class="w"> </span><span class="o">[</span>output_file<span class="o">]</span>
+</span></code></pre></div>
+<h3 id="arguments_1">Arguments<a class="headerlink" href="#arguments_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>&lt;file&gt;</code></strong> (Required): Path to the input file to encrypt.</li>
+<li><strong><code>&lt;password&gt;</code></strong> (Required): The encryption password.</li>
+<li><strong><code>[cost]</code></strong> (Optional, default <code>10</code>): Hashing cost factor used for deriving the encryption key.</li>
+<li><strong><code>[output_file]</code></strong> (Optional): Path to write the encrypted output. If omitted, defaults to <code>&lt;file&gt;.enc</code>.</li>
+</ul>
+<h3 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Encrypts &#39;data.json&#39; -&gt; &#39;data.json.enc&#39;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>enigma<span class="w"> </span>encrypt<span class="w"> </span>data.json<span class="w"> </span><span class="s2">&quot;SecretPassphrase&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Encrypts &#39;data.json&#39; -&gt; &#39;archive.bin&#39; with custom cost 12</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>enigma<span class="w"> </span>encrypt<span class="w"> </span>data.json<span class="w"> </span><span class="s2">&quot;SecretPassphrase&quot;</span><span class="w"> </span><span class="m">12</span><span class="w"> </span>archive.bin
+</span></code></pre></div>
+<hr />
+<h2 id="decrypt">🔓 <code>decrypt</code><a class="headerlink" href="#decrypt" title="Permanent link">&para;</a></h2>
+<p>Decrypt any <code>ENIGMA01</code> formatted file.</p>
+<h3 id="syntax_2">Syntax<a class="headerlink" href="#syntax_2" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>enigma<span class="w"> </span>decrypt<span class="w"> </span>&lt;file&gt;<span class="w"> </span>&lt;password&gt;<span class="w"> </span><span class="o">[</span>output_file<span class="o">]</span>
+</span></code></pre></div>
+<h3 id="arguments_2">Arguments<a class="headerlink" href="#arguments_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>&lt;file&gt;</code></strong> (Required): Path to the encrypted file.</li>
+<li><strong><code>&lt;password&gt;</code></strong> (Required): Decryption password.</li>
+<li><strong><code>[output_file]</code></strong> (Optional): Path to save the decrypted output. If omitted, defaults to <code>&lt;file&gt;.dec</code>.</li>
+</ul>
+<h3 id="examples_2">Examples<a class="headerlink" href="#examples_2" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Decrypts &#39;archive.bin&#39; -&gt; &#39;archive.bin.dec&#39;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>enigma<span class="w"> </span>decrypt<span class="w"> </span>archive.bin<span class="w"> </span><span class="s2">&quot;SecretPassphrase&quot;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Decrypts &#39;archive.bin&#39; -&gt; &#39;restored_data.json&#39;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>enigma<span class="w"> </span>decrypt<span class="w"> </span>archive.bin<span class="w"> </span><span class="s2">&quot;SecretPassphrase&quot;</span><span class="w"> </span>restored_data.json
 </span></code></pre></div>
 
 

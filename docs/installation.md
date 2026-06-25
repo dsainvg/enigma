@@ -1,69 +1,44 @@
 # Installation Guide
 
-You can run Enigma either as a high-performance Python package or as a standalone native command-line tool.
+Get up and running with Enigma as a Python library or as a standalone native command-line utility.
 
 ---
 
-## 🐍 Python Package Installation
+## 🐍 Python Library
 
-The official Python package is published to PyPI as **`enigma-encryption`** and includes pre-compiled binary wheels for Windows, macOS, and Linux (Python 3.10–3.13).
+The official Python package is published as **`enigma-encryption`**. It includes pre-compiled binary wheels for all major platforms (Windows, macOS, and Linux) running Python 3.10 to 3.13.
 
-Install it via `pip`:
+Install it directly via your package manager:
 
 ```bash
 pip install enigma-encryption
 ```
 
-### Build from Source (Source Distribution)
+Once installed, it can be imported in your Python scripts as `enigma`:
 
-If you are on a platform without pre-built binary wheels, `pip` will automatically download the source distribution and compile it. 
-
-To build it manually from a local clone of the repository:
-
-```bash
-# Clone the repository
-git clone https://github.com/dsainvg/enigma.git
-cd enigma
-
-# Install dependencies and compile the package
-pip install . -v
+```python
+import enigma
 ```
-
-> [!NOTE]
-> Building from source requires a C++17 compiler (GCC 8+, Clang 7+, or MSVC 2019+) and CMake 3.18+ installed on your system path.
 
 ---
 
 ## 💻 C++ Command-Line Tool (CLI)
 
-To build the native CLI executable (`enigma` or `enigma.exe`) directly from source, use CMake.
+For command-line use, you can download the standalone, pre-compiled binary (`enigma` or `enigma.exe`) directly. 
 
-### Prerequisites
+This standalone tool requires no compiler or dependencies on your system path.
 
-Ensure you have the following installed:
-* **CMake** (v3.18 or newer)
-* **C++ Compiler** (supporting C++17)
-* **Ninja** or **Make** (build generators)
+### Downloading the Executable
 
-### Build Steps
+1. Go to the [GitHub Releases Page](https://github.com/dsainvg/enigma/releases).
+2. Download the binary package corresponding to your operating system:
+   * **Windows**: `enigma-windows-amd64.zip` (contains `enigma.exe`)
+   * **macOS**: `enigma-macos-universal.tar.gz`
+   * **Linux**: `enigma-linux-amd64.tar.gz`
+3. Extract the archive and place the executable in a directory on your system path (e.g., `/usr/local/bin` on Linux/macOS or a custom folder added to your Windows Path environment variables).
 
-1. Configure the CMake build environment:
-   ```bash
-   cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
-   ```
-2. Compile the targets:
-   ```bash
-   cmake --build build --parallel
-   ```
-3. The built CLI executable will be generated at:
-   * **Linux/macOS**: `build/cli/enigma`
-   * **Windows**: `build/cli/enigma.exe`
-
-### Running C++ Tests
-
-To verify that the compiled C++ library and executable are functioning correctly on your machine, run `ctest` inside the build directory:
+To verify the installation, open your terminal and run:
 
 ```bash
-cd build
-ctest --output-on-failure
+enigma --help
 ```

@@ -1,38 +1,37 @@
-# Security Considerations
+# Security Considerations & Warnings
 
-The cryptography algorithms in Enigma are **custom-designed** and built without external third-party libraries (like OpenSSL or Sodium). 
+The cryptography algorithms in Enigma are **custom-designed** and written without external, peer-reviewed industrial libraries like OpenSSL, Libsodium, or BoringSSL.
 
-Before deploying Enigma in sensitive scenarios, it is critical to understand its cryptographic strengths and limitations.
+Before using Enigma, it is critical to understand its security properties and target use cases.
 
 ---
 
 ## ⚡ Strengths
 
-1. **Brute-Force Resistance**: The password hashing engine uses a multi-stage permutation and polynomial evaluation flow. By caching results in a stateful, memory-hard `memo` array of size $16 \times 2^{\text{cost}}$, the cost of pipelined attacks (ASIC or GPU clusters) is significantly higher than basic hashing algorithms like SHA-256 or MD5.
-2. **Deterministic & Uniform**: Hashing produces predictable, uniform hash formats containing embedded salts, eliminating the need for separate metadata databases.
-3. **No Supply-Chain Vulnerabilities**: Pure C++ standard library structures prevent security vulnerabilities from upstream library dependencies or binary injection vectors.
+* **Iterative Work Factor**: By utilizing a work factor (`cost`), key derivation requires $2^{\text{cost}}$ iterations. This creates computational delays, defending against quick automated dictionary/brute-force attacks.
+* **Memory-Hard Hashing**: Intermediate rounds reference a stateful lookup matrix (`memo`). This forces the hashing runner to utilize RAM, reducing the efficiency of custom FPGA/GPU parallel cracking setups.
+* **No Upstream Dependencies**: A zero-dependency model reduces supply chain threat vectors and eliminates binary loading or dynamic linking issues.
 
 ---
 
-## ⚠️ Limitations & Security Risks
+## ⚠️ Limitations & Cryptanalysis Warnings
 
-### 1. Custom Cipher Design
-The symmetric encryption cipher (combining whole-buffer dynamic bit rotations and XOR passes) is a custom implementation:
-* **Academic Review**: It has **not** undergone standardized public academic cryptanalysis or peer review (unlike NIST standards such as AES).
-* **Cryptanalysis Vulnerabilities**: Dynamic bit rotations provide simple confusion and diffusion, but they may still be vulnerable to differential or linear cryptanalysis attacks under large inputs or chosen-plaintext setups.
+### 1. Custom Cryptographic Algorithms
+* **No Academic Peer Review**: Unlike standard algorithms (such as AES or ChaCha20), Enigma's bitwise whole-buffer rotation and XOR cipher has not undergone extensive academic cryptanalysis or peer evaluation. 
+* **Potential Flaws**: Custom encryption schemes are highly susceptible to mathematical weaknesses, shortcut attacks, or linear/differential cryptanalysis that could compromise keys or plaintext.
 
-### 2. No Authenticated Encryption (AEAD)
-Enigma is **not** an Authenticated Encryption with Associated Data (AEAD) scheme:
-* **Ciphertext Tampering**: If a malicious third party intercepts an encrypted file and modifies individual bytes, Enigma will decrypt the tampered file anyway, producing garbage data in the modified blocks instead of raising a signature verification/tamper alert.
-* **Integrity Validation**: While the header validation tag prevents decrypting with a wrong password, it *does not* protect the payload bytes from being altered or injected after encryption.
+### 2. Lack of Authenticated Encryption (AEAD)
+* **No Integrity Signature**: Enigma does not support Authenticated Encryption (AEAD) or message authentication codes (MACs). 
+* **Ciphertext Tampering**: If an attacker intercepts your encrypted file and alters bits within the ciphertext, Enigma's decryption engine will not raise a signature validation error. It will proceed to decrypt the altered bytes anyway, producing corrupted/garbage data in the modified segments. Only password verification tags at the header level are validated.
 
 ---
 
 ## 🎓 Recommended Guidelines
 
 > [!WARNING]
-> Do not use Enigma for high-security applications, financial transactional data, medical records, or production systems containing critical user secrets.
+> Do not use Enigma to secure high-value commercial systems, financial data, health records, or authentication backends.
 
-For standard commercial or enterprise application setups, you should rely on standardized, peer-reviewed industrial cryptographic combinations:
-* **Password Hashing**: **Argon2id** (RFC 9106) or **scrypt** (RFC 7914).
-* **Symmetric Encryption**: **AES-256-GCM** (NIST SP 800-38D) or **ChaCha20-Poly1305** (RFC 8439).
+For standard production systems requiring certified security, you should use industry-standard ciphers:
+* **Symmetric Encryption**: Use **AES-GCM-256** or **ChaCha20-Poly1305**.
+* **Password Hashing**: Use **Argon2id** or **scrypt**.
+* **Library Options**: Standard production libraries include `PyNaCl` (Libsodium) or Python's native `cryptography` package.

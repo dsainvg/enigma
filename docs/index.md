@@ -1,46 +1,25 @@
-# Introduction to Enigma
+# Enigma Documentation Portal
 
-Welcome to the **Enigma** developer portal. 
+Welcome to the official documentation for **Enigma**, a modern, lightweight cryptography system for secure password hashing and symmetric byte/file encryption.
 
-Enigma is a modern, zero-dependency cryptography monorepo featuring a high-performance C++17 core, a standalone command-line interface (CLI), and native Python bindings.
-
-```mermaid
-graph TD
-    subgraph "Core Cryptography Layer"
-        Core[core/ enigma_core STATIC]
-    end
-    subgraph "Frontend Bindings"
-        CLI[cli/ enigma CLI Binary]
-        Py[python/ _enigma Native Module]
-    end
-    subgraph "Distribution Channels"
-        Pypi[PyPI: enigma-encryption]
-        Github[GitHub Releases: enigma CLI]
-    end
-
-    Core -->|linked| CLI
-    Core -->|linked| Py
-    Py -->|packaged| Pypi
-    CLI -->|packaged| Github
-```
+Enigma is built to deliver native, high-performance cryptographic operations through a secure C++ engine paired with standard Python interfaces.
 
 ---
 
-## Key Features
+## Key Capabilities
 
-* **Zero-Dependency Core**: Written in clean, modern C++17 with no runtime dependencies on heavy frameworks like OpenSSL.
-* **Hybrid Build Architecture**: Utilizes `scikit-build-core` and CMake to compile pybind11 C++ code into binary Python wheels automatically.
-* **Symmetric Bitwise Cipher**: Employs an iterated, block-level bitwise rotation and XORing scheme to encrypt and decrypt arbitrary files or byte streams.
-* **Hardened Password Hashing**: Implements a memory-hard iteration system that resists brute-force and dictionary attacks.
-* **Full Cross-Compatibility**: Anything encrypted by the C++ CLI tool can be seamlessly decrypted by the Python library (and vice versa).
+* 🔑 **Secure Password Hashing**: Strengthens user credentials with a memory-hard iteration workflow that defends against GPU-based offline dictionary attacks.
+* 🔒 **Symmetric File Cipher**: Encrypts and decrypts files of any size using block-level bit rotation and XORing.
+* 📦 **In-Memory Byte Encryption**: Secures variables and raw byte streams directly in-memory using fast Python bindings.
+* 💻 **Cross-Platform CLI**: A portable command-line tool compiled for Windows, macOS, and Linux.
+* 🐍 **Standard Python Extension**: Native speed combined with Pythonic interfaces and exceptions.
+* 🔄 **Cross-Compatibility**: Decrypt files on the CLI that were encrypted using the Python package, and vice-versa.
 
 ---
 
-## Core Components
+## Project Purpose
 
-The repository is structured logically to ensure all cryptographic logic resides in a single, auditable location:
+Enigma was created to provide a lightweight, auditable cryptography tool that runs out of the box with zero runtime dependencies. 
 
-1. **`core/`**: The core static library (`libenigma_core`). Handles the low-level memory hashing arrays, bit rotation primitives, file chunk parsing, and key-derivation.
-2. **`cli/`**: A native executable wrapper exposing commands to hash strings, encrypt files, and decrypt them.
-3. **`python/`**: Native extension bindings (`pybind11`) that build and pack the code into the `enigma-encryption` package on PyPI.
-4. **`tests/`**: Parallel test suites for C++ (`ctest`) and Python (`pytest`) ensuring mathematical algorithm parity on every single commit.
+> [!NOTE]
+> Enigma relies on custom-designed encryption and hashing processes. It is designed for educational, utility, and obfuscation use cases, and is **not** recommended for high-security applications where standard AES-GCM or Argon2id systems are required. See the [Security Warnings](security.md) section for full details.

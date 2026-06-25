@@ -63,15 +63,18 @@ markdown_extensions:
   - toc:
       permalink: true
 
+extra_css:
+  - stylesheets/extra.css
+
 nav:
-  - Introduction: index.md
-  - Getting Started:
+  - User Guide:
+    - Welcome: index.md
     - Installation: installation.md
-    - CLI Reference: cli-reference.md
-  - Features:
-    - Password Hashing: hashing.md
-    - File Encryption: file-encryption.md
-    - Byte Encryption: bytes-encryption.md
-  - API Reference:
-    - Python API: python-reference.md
-  - Security & Cryptanalysis: security.md
+    - Command Line (CLI): cli.md
+    - Python API: python.md
+    - Security & Warnings: security.md
+  - Developer Guide:
+    - Contributing Overview: dev/index.md
+    - Repository Architecture: dev/architecture.md
+    - Cryptographic Algorithms: dev/algorithms.md
+    - Compiling & Testing: dev/build.md

@@ -905,7 +905,7 @@
 <hr />
 <h2 id="strengths">⚡ Strengths<a class="headerlink" href="#strengths" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Iterative Work Factor</strong>: By utilizing a work factor (<code>cost</code>), key derivation requires $2^{\text{cost}}$ iterations. This creates computational delays, defending against quick automated dictionary/brute-force attacks.</li>
+<li><strong>Iterative Work Factor</strong>: By utilizing a work factor (<code>cost</code>), key derivation requires <span class="arithmatex">\(2^{\text{cost}}\)</span> iterations. This creates computational delays, defending against quick automated dictionary/brute-force attacks.</li>
 <li><strong>Memory-Hard Hashing</strong>: Intermediate rounds reference a stateful lookup matrix (<code>memo</code>). This forces the hashing runner to utilize RAM, reducing the efficiency of custom FPGA/GPU parallel cracking setups.</li>
 <li><strong>No Upstream Dependencies</strong>: A zero-dependency model reduces supply chain threat vectors and eliminates binary loading or dynamic linking issues.</li>
 </ul>
@@ -990,6 +990,10 @@ Do not use Enigma to secure high-value commercial systems, financial data, healt
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

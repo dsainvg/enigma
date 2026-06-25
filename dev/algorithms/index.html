@@ -1005,42 +1005,42 @@
 <h2 id="hashing-internals">🔑 Hashing Internals<a class="headerlink" href="#hashing-internals" title="Permanent link">&para;</a></h2>
 <p>The hashing routine <code>internal_hash_password</code> mixes inputs into printable ASCII sequences using modular math and polynomial equations.</p>
 <h3 id="1-hash1-character-mixing">1. <code>hash1</code> (Character Mixing)<a class="headerlink" href="#1-hash1-character-mixing" title="Permanent link">&para;</a></h3>
-<p>Processes the initial byte sequence $S = \text{salt} + \text{"$"} + \text{password}$:</p>
-<p>$$\text{accumulator} = \text{seed}$$</p>
-<p>For each byte $b_j$ in the sequence:</p>
-<p>$$\text{val} = \text{accumulator} \times 113 + b_j$$</p>
-<p>$$\text{accumulator} = \text{accumulator} + 2 \pmod{23}$$</p>
-<p>$$\text{char_code} = (\text{val} \pmod{90}) \ \&amp; \ \left( \left\lfloor \frac{\text{val}}{90} \right\rfloor \pmod{90} + 37 \right)$$</p>
+<p>Processes the initial byte sequence <span class="arithmatex">\(S = \text{salt} + \text{"\)</span>"} + \text{password}$:</p>
+<div class="arithmatex">\[\text{accumulator} = \text{seed}\]</div>
+<p>For each byte <span class="arithmatex">\(b_j\)</span> in the sequence:</p>
+<div class="arithmatex">\[\text{val} = \text{accumulator} \times 113 + b_j\]</div>
+<div class="arithmatex">\[\text{accumulator} = \text{accumulator} + 2 \pmod{23}\]</div>
+<div class="arithmatex">\[\text{char\_code} = (\text{val} \pmod{90}) \ \&amp; \ \left( \left\lfloor \frac{\text{val}}{90} \right\rfloor \pmod{90} + 37 \right)\]</div>
 <p>The resulting <code>char_code</code> byte is emitted to the output buffer <code>hash1</code>.</p>
 <h3 id="2-permutation-step">2. Permutation Step<a class="headerlink" href="#2-permutation-step" title="Permanent link">&para;</a></h3>
 <p>Removes elements from <code>hash1</code> one-by-one at cyclic offsets:</p>
-<p>$$\text{index} = (\text{current} + n - 1) \pmod{\text{size}}$$</p>
+<div class="arithmatex">\[\text{index} = (\text{current} + n - 1) \pmod{\text{size}}\]</div>
 <p>This produces a specific permutation of the character array rather than a standard sort.</p>
 <h3 id="3-hash2-polynomial-hash-base-71">3. <code>hash2</code> (Polynomial Hash, Base 71)<a class="headerlink" href="#3-hash2-polynomial-hash-base-71" title="Permanent link">&para;</a></h3>
 <p>Computes a base-71 polynomial value:</p>
-<p>$$hv_{next} = hv \times 71 + b_k$$</p>
+<div class="arithmatex">\[hv_{next} = hv \times 71 + b_k\]</div>
 <p>For each generated state, we emit printable ASCII codes by extracting digits:
-$$\text{code} = (hv \pmod{90}) + 37$$</p>
-<p>$$hv = \left\lfloor \frac{hv}{90} \right\rfloor$$</p>
+$<span class="arithmatex">\(\text{code} = (hv \pmod{90}) + 37\)</span>$</p>
+<div class="arithmatex">\[hv = \left\lfloor \frac{hv}{90} \right\rfloor\]</div>
 <h3 id="4-hash3-polynomial-hash-base-997">4. <code>hash3</code> (Polynomial Hash, Base 997)<a class="headerlink" href="#4-hash3-polynomial-hash-base-997" title="Permanent link">&para;</a></h3>
 <p>Computes a base-997 polynomial hash. </p>
 <blockquote>
 <p>[!IMPORTANT]
-To preserve state dependency, the final value of the accumulator $hv$ from <code>hash2</code> is <strong>not</strong> reset; it is carried directly into <code>hash3</code> as the starting accumulator seed.</p>
+To preserve state dependency, the final value of the accumulator <span class="arithmatex">\(hv\)</span> from <code>hash2</code> is <strong>not</strong> reset; it is carried directly into <code>hash3</code> as the starting accumulator seed.</p>
 </blockquote>
 <hr />
 <h2 id="cipher-internals-rotate-xor">🔒 Cipher Internals (Rotate + XOR)<a class="headerlink" href="#cipher-internals-rotate-xor" title="Permanent link">&para;</a></h2>
 <p>The cipher divides files and buffers into <strong>1024-byte chunks</strong> (blocks). </p>
 <h3 id="1-rounds-calculation">1. Rounds Calculation<a class="headerlink" href="#1-rounds-calculation" title="Permanent link">&para;</a></h3>
-<p>For each block at index $i$:</p>
-<p>$$\text{Rounds} = 10 + (i \pmod 6)$$</p>
-<p>This ensures that consecutive blocks are processed with varying iteration depths ($10 \le \text{Rounds} \le 15$), breaking static pattern analysis.</p>
+<p>For each block at index <span class="arithmatex">\(i\)</span>:</p>
+<div class="arithmatex">\[\text{Rounds} = 10 + (i \pmod 6)\]</div>
+<p>This ensures that consecutive blocks are processed with varying iteration depths (<span class="arithmatex">\(10 \le \text{Rounds} \le 15\)</span>), breaking static pattern analysis.</p>
 <h3 id="2-rotation-and-xor">2. Rotation and XOR<a class="headerlink" href="#2-rotation-and-xor" title="Permanent link">&para;</a></h3>
-<p>In each round $n$:</p>
+<p>In each round <span class="arithmatex">\(n\)</span>:</p>
 <ol>
 <li><strong>Shift Calculation</strong>: The block is rotated left bitwise by:
-    $$\text{shift} = 1 + ((\text{key_byte}[n] + n) \pmod 7) \text{ bits}$$</li>
-<li><strong>Bitwise Left Rotation</strong>: Bits are shifted left across the entire 1 KB block. The overflow bits of byte $j$ are carried over into byte $j-1$, and the leftmost bits of byte 0 are wrapped around to the rightmost positions of byte 1023.</li>
+    $<span class="arithmatex">\(\text{shift} = 1 + ((\text{key\_byte}[n] + n) \pmod 7) \text{ bits}\)</span>$</li>
+<li><strong>Bitwise Left Rotation</strong>: Bits are shifted left across the entire 1 KB block. The overflow bits of byte <span class="arithmatex">\(j\)</span> are carried over into byte <span class="arithmatex">\(j-1\)</span>, and the leftmost bits of byte 0 are wrapped around to the rightmost positions of byte 1023.</li>
 <li><strong>XOR</strong>: Each byte of the rotated block is XORed with the corresponding derived key byte.</li>
 </ol>
 <hr />
@@ -1113,6 +1113,10 @@ To preserve state dependency, the final value of the accumulator $hv$ from <code
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

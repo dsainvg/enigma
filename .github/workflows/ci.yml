@@ -1,0 +1,62 @@
+﻿name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  # ── C++ build + tests ─────────────────────────────────────────────────────
+  cpp-tests:
+    name: C++ Tests (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: >
+          cmake -B build
+          -DCMAKE_BUILD_TYPE=Release
+          -DENIGMA_BUILD_CLI=ON
+          -Denigma_BUILD_PYTHON=OFF
+          -Denigma_BUILD_TESTS=ON
+
+      - name: Build
+        run: cmake --build build --config Release --parallel
+
+      - name: Run CTest
+        working-directory: build
+        run: ctest --output-on-failure -C Release
+
+  # ── Python tests ──────────────────────────────────────────────────────────
+  python-tests:
+    name: Python Tests (${{ matrix.os }}, Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.9", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install build dependencies
+        run: pip install scikit-build-core pybind11 pytest
+
+      - name: Build and install Python package
+        run: pip install -e . --no-build-isolation
+
+      - name: Run pytest
+        run: pytest tests/python/ -v --tb=short

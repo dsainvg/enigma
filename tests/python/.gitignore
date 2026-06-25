@@ -1,0 +1,9 @@
+# pytest artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Temp files created by file-based cipher tests
+*.enc
+*.dec
+tmp_*

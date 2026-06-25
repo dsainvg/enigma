@@ -1,0 +1,7 @@
+# C++ test binaries go into the root build/ directory
+compile_commands.json
+
+# Temporary files created by test_cipher.cpp file tests
+test_input_tmp*
+test_enc_tmp*
+test_dec_tmp*

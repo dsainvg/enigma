@@ -1,0 +1,13 @@
+# Python build artifacts inside python/
+enigma/_enigma*.pyd
+enigma/_enigma*.so
+enigma/_enigma*.dll
+enigma/__pycache__/
+enigma/*.pyc
+
+# pybind11 FetchContent download cache
+_deps/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json

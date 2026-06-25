@@ -1,0 +1,111 @@
+﻿name: Publish to PyPI
+
+# Triggered when a version tag is pushed: git tag v1.0.0 && git push --tags
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: read
+  id-token: write  # Required for trusted publishing (OIDC)
+
+jobs:
+  # ── Build wheels using cibuildwheel ────────────────────────────────────────
+  build-wheels:
+    name: Build wheels (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install cibuildwheel
+        run: pip install cibuildwheel==2.19.*
+
+      - name: Build wheels
+        run: python -m cibuildwheel --output-dir wheelhouse
+        env:
+          # Build for Python 3.8 – 3.12
+          CIBW_BUILD: "cp38-* cp39-* cp310-* cp311-* cp312-*"
+          # Skip 32-bit and PyPy builds
+          CIBW_SKIP: "*-win32 *-manylinux_i686 pp*"
+          # Use manylinux2014 for broad Linux compatibility
+          CIBW_MANYLINUX_X86_64_IMAGE: manylinux2014
+          # Install CMake and pybind11 inside the build environment
+          CIBW_BEFORE_BUILD: "pip install scikit-build-core pybind11"
+          # Test the wheel after building
+          CIBW_TEST_REQUIRES: "pytest"
+          CIBW_TEST_COMMAND: "pytest {project}/tests/python/ -v --tb=short"
+
+      - name: Upload wheel artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheels-${{ matrix.os }}
+          path: wheelhouse/*.whl
+
+  # ── Build source distribution (sdist) ────────────────────────────────────
+  build-sdist:
+    name: Build sdist
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build
+        run: pip install build
+
+      - name: Build sdist
+        run: python -m build --sdist
+
+      - name: Upload sdist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sdist
+          path: dist/*.tar.gz
+
+  # ── Publish to PyPI ────────────────────────────────────────────────────────
+  publish:
+    name: Publish to PyPI
+    needs: [build-wheels, build-sdist]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/enigma/
+
+    steps:
+      - name: Download all wheels
+        uses: actions/download-artifact@v4
+        with:
+          pattern: wheels-*
+          merge-multiple: true
+          path: dist/
+
+      - name: Download sdist
+        uses: actions/download-artifact@v4
+        with:
+          name: sdist
+          path: dist/
+
+      - name: List dist contents
+        run: ls -la dist/
+
+      # Option A: Trusted Publishing (recommended — no token needed)
+      # Set up at: https://pypi.org/manage/account/publishing/
+      - name: Publish to PyPI (Trusted Publishing)
+        uses: pypa/gh-action-pypi-publish@release/v1
+        # with:
+        #   # Option B: Use API token (add PYPI_TOKEN to repo secrets)
+        #   password: ${{ secrets.PYPI_TOKEN }}

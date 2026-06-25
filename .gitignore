@@ -1,0 +1,43 @@
+# Build outputs
+build/
+dist/
+wheelhouse/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# Python package build artifacts
+python/enigma/_enigma*.pyd
+python/enigma/_enigma*.so
+python/enigma/_enigma*.dll
+*.whl
+*.tar.gz
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+Testing/
+compile_commands.json
+
+# IDE
+.vscode/
+.idea/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp test files
+test_input_tmp*
+test_enc_tmp*
+test_dec_tmp*

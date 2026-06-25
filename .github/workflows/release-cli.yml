@@ -1,0 +1,106 @@
+﻿name: Release CLI
+
+# Triggered when a version tag is pushed: git tag v1.0.0 && git push --tags
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write   # Needed to create GitHub Release and upload assets
+
+jobs:
+  build-cli:
+    name: Build CLI (${{ matrix.name }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - name: linux-x86_64
+            os: ubuntu-latest
+            artifact: enigma-linux-x86_64
+            cmake_extra: ""
+
+          - name: macos-arm64
+            os: macos-latest
+            artifact: enigma-macos-arm64
+            cmake_extra: ""
+
+          - name: windows-x86_64
+            os: windows-latest
+            artifact: enigma-windows-x86_64.exe
+            cmake_extra: ""
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: >
+          cmake -B build
+          -DCMAKE_BUILD_TYPE=Release
+          -DENIGMA_BUILD_CLI=ON
+          -Denigma_BUILD_PYTHON=OFF
+          -Denigma_BUILD_TESTS=OFF
+          ${{ matrix.cmake_extra }}
+
+      - name: Build
+        run: cmake --build build --config Release --parallel
+
+      # Rename to platform-specific artifact name
+      - name: Rename binary (Linux/macOS)
+        if: runner.os != 'Windows'
+        run: cp build/cli/enigma ${{ matrix.artifact }}
+
+      - name: Rename binary (Windows)
+        if: runner.os == 'Windows'
+        run: copy build\cli\Release\enigma.exe ${{ matrix.artifact }}
+        shell: cmd
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.artifact }}
+
+  # ── Create GitHub Release and attach binaries ─────────────────────────────
+  release:
+    name: Create GitHub Release
+    needs: build-cli
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "enigma ${{ github.ref_name }}"
+          draft: false
+          prerelease: ${{ contains(github.ref_name, 'alpha') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'rc') }}
+          body: |
+            ## enigma CLI ${{ github.ref_name }}
+
+            ### Downloads
+
+            | Platform | Binary |
+            |---|---|
+            | Linux x86_64  | `enigma-linux-x86_64` |
+            | macOS (Apple Silicon) | `enigma-macos-arm64` |
+            | Windows x86_64 | `enigma-windows-x86_64.exe` |
+
+            ### Usage
+            ```
+            enigma hash   <password> [cost=10] [salt]
+            enigma enigmapt <file> <password> [cost=10] [output]
+            enigma decrypt <file> <password> [output]
+            ```
+
+            ### Checksum
+            SHA-256 checksums are embedded in the release assets.
+          files: |
+            dist/**/*

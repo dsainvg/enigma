@@ -1,0 +1,3 @@
+# cli/ has no build outputs — source only
+# Binaries go into the root build/ directory (already ignored by root .gitignore)
+compile_commands.json

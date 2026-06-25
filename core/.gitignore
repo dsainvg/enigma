@@ -1,0 +1,3 @@
+# core/ has no build outputs — headers and source only
+# But CMake may generate compile_commands.json here in some setups
+compile_commands.json

@@ -78,9 +78,11 @@ nav:
     - Installation: installation.md
     - Command Line (CLI): cli.md
     - Python API: python.md
+    - Performance & Tuning: performance.md
     - Security & Warnings: security.md
   - Developer Guide:
     - Contributing Overview: dev/index.md
     - Repository Architecture: dev/architecture.md
     - Cryptographic Algorithms: dev/algorithms.md
     - Compiling & Testing: dev/build.md
+    - Benchmarks: dev/benchmarks.md

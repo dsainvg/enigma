@@ -40,6 +40,12 @@ enigma/
 └── tests/                      # Unified Test Suites
     ├── cpp/                    # GoogleTest / Standard C++ unit tests
     └── python/                 # Pytest suite & CLI/Python cross-compatibility verification
+
+benchmarks/                     # Performance benchmark suite
+├── bench.py                    # Hash + file encryption benchmark script
+└── results/                    # Generated markdown result tables
+    ├── hash_results.md         # Hash benchmark raw data
+    └── encrypt_results.md      # File encryption benchmark raw data
 ```
 
 ---

@@ -91,19 +91,24 @@ static py::bytes wrap_decrypt_bytes(py::bytes data, const std::string &password)
 static void wrap_encrypt_file(const std::string &input_file,
                                const std::string &output_file,
                                const std::string &password,
-                               int cost)
+                               int cost,
+                               int threads,
+                               int io_buf_mb)
 {
     int rc = encrypt_file(input_file.c_str(), output_file.c_str(),
-                          password.c_str(), cost);
+                          password.c_str(), cost, threads, io_buf_mb);
     if (rc != 0)
         throw std::runtime_error("encrypt_file() failed (code " + std::to_string(rc) + ")");
 }
 
 static void wrap_decrypt_file(const std::string &input_file,
                                const std::string &output_file,
-                               const std::string &password)
+                               const std::string &password,
+                               int threads,
+                               int io_buf_mb)
 {
-    int rc = decrypt_file(input_file.c_str(), output_file.c_str(), password.c_str());
+    int rc = decrypt_file(input_file.c_str(), output_file.c_str(),
+                          password.c_str(), threads, io_buf_mb);
     if (rc == -2)
         throw std::invalid_argument("Wrong password");
     if (rc != 0)
@@ -200,14 +205,23 @@ Raises:
           py::arg("output_file"),
           py::arg("password"),
           py::arg("cost") = 10,
+          py::arg("threads") = 1,
+          py::arg("io_buf_mb") = 4,
+          py::call_guard<py::gil_scoped_release>(),
           R"doc(
 Encrypt a file.  Output is written in ENIGMA01 format.
+
+Streams the file in `io_buf_mb`-MiB chunks — memory usage is bounded
+regardless of file size, so files larger than RAM are supported.
 
 Args:
     input_file:  Path to the plaintext file.
     output_file: Path for the encrypted output file.
     password:    Encryption password.
-    cost:        Work factor (default 10).
+    cost:        Key-derivation work factor (default 10, iterations = 2^cost).
+    threads:     Worker threads for block cipher passes (default 1).
+                 Set to 0 to use all available CPU cores.
+    io_buf_mb:   I/O buffer size in MiB (default 4).
 
 Raises:
     RuntimeError: On I/O or encryption error.
@@ -218,6 +232,9 @@ Raises:
           py::arg("input_file"),
           py::arg("output_file"),
           py::arg("password"),
+          py::arg("threads") = 1,
+          py::arg("io_buf_mb") = 4,
+          py::call_guard<py::gil_scoped_release>(),
           R"doc(
 Decrypt a file produced by encrypt_file().
 
@@ -225,6 +242,9 @@ Args:
     input_file:  Path to the encrypted file.
     output_file: Path for the decrypted output file.
     password:    Decryption password.
+    threads:     Worker threads for block cipher passes (default 1).
+                 Set to 0 to use all available CPU cores.
+    io_buf_mb:   I/O buffer size in MiB (default 4).
 
 Raises:
     ValueError:   Wrong password.

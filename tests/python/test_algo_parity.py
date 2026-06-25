@@ -81,9 +81,12 @@ def section(name: str) -> None:
     print(f"\n--- {name} ---")
 
 def cli_hash(password: str, cost: int, salt: str) -> str:
-    r = subprocess.run([CLI, "hash", password, str(cost), salt],
-                       capture_output=True, text=True, encoding="utf-8")
-    return r.stdout.strip()
+    import subprocess as _sp
+    r = _sp.run(
+        [CLI, "hash", password, f"--cost={cost}", f"--salt={salt}"],
+        stdout=_sp.PIPE, stderr=_sp.PIPE
+    )
+    return r.stdout.decode("latin-1").strip()
 
 def test_algorithm_parity():
     section("Hash output parity: C++ CLI vs Python reference")

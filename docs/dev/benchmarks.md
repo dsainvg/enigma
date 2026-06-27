@@ -48,7 +48,7 @@ Results are written to:
 |---|---|
 | enigma version | 0.1.0 |
 | Python | 3.13.9 |
-| CPU cores | 22 |
+| CPU cores | 4 |
 | OS | Windows |
 
 ---
@@ -107,17 +107,10 @@ Results are written to:
 | 8  | 4        | 16 | 0.068 | 14.6 | 0.072 | 14.0 | 16.1 |
 | 8  | 4        | 32 | 0.060 | 16.5 | 0.077 | 12.9 | 32.1 |
 | 8  | 4        | 64 | 0.071 | 14.0 | 0.099 | 10.1 | 64.1 |
-| 8  | auto(22) | 1  | 0.045 | 22.3 | 0.066 | 15.1 | 1.4  |
-| 8  | auto(22) | 4  | 0.051 | 19.5 | 0.103 | 9.7  | 4.8  |
-| 8  | auto(22) | 16 | 0.052 | 19.3 | 0.055 | 18.1 | 16.4 |
-| 8  | auto(22) | 32 | 0.055 | 18.3 | 0.068 | 14.8 | 32.4 |
-| 8  | auto(22) | 64 | 0.065 | 15.3 | 0.078 | 12.7 | 64.4 |
 | 10 | 1        | 1  | 0.223 | 4.5  | 0.242 | 4.1  | 22.2 |
 | 10 | 1        | 4  | 0.232 | 4.3  | 0.229 | 4.4  | 3.6  |
 | 10 | 2        | 1  | 0.175 | 5.7  | 0.199 | 5.0  | 3.9  |
 | 10 | 4        | 4  | 0.217 | 4.6  | 0.237 | 4.2  | 7.7  |
-| 10 | auto(22) | 1  | 0.161 | 6.2  | 0.182 | 5.5  | 2.7  |
-| 10 | auto(22) | 4  | 0.178 | 5.6  | 0.203 | 4.9  | 3.5  |
 
 ## Raw Encryption Results — 64 MB (partial, single-thread)
 
@@ -136,5 +129,4 @@ Results are written to:
    66 ms vs 69 ms for an 8-char password. Cost factor is the only meaningful variable.
 2. **Every +2 cost ≈ ×4 slower** — doubly exponential. cost=14 takes ~2 seconds per call.
 3. **Peak RSS scales with buffer size, not file size** — constant-memory streaming is proven.
-4. **1 MB / threads=auto / buf=1MB** gives the best throughput at minimal memory (22 MB/s, 1.4 MB RSS).
-5. **1 MB / threads=4 / buf=4MB** is the sweet spot for typical systems (18.7 MB/s, 4.1 MB RSS).
+4. **1 MB / threads=4 / buf=4MB** is the sweet spot for typical systems (18.7 MB/s, 4.1 MB RSS).

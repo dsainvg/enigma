@@ -75,6 +75,8 @@ extra_javascript:
 nav:
   - User Guide:
     - Welcome: index.md
+    - Try Online: try.md
+    - Try Full Screen: try/fs.md
     - Installation: installation.md
     - Command Line (CLI): cli.md
     - Python API: python.md

@@ -32,8 +32,7 @@ On large files the cipher work dominates and additional threads help:
 | 64 MB     | 4       | ~30–45 MB/s (estimated)   |
 | 64 MB     | all cores | **~60–70 MB/s (estimated)** |
 | 1 MB      | 1       | ~8–9 MB/s                 |
-| 1 MB      | 4       | ~18–19 MB/s               |
-| 1 MB      | auto(22) | **~22 MB/s**             |
+| 1 MB      | 4       | **~18–19 MB/s**           |
 
 ### Buffer size controls memory, not throughput
 
@@ -52,7 +51,7 @@ uses only ~4–8 MB peak RSS.
 
 ## Benchmark Results
 
-> **Environment:** Python 3.13.9 / 22-core CPU / Windows
+> **Environment:** Python 3.13.9 / 4-core CPU / Windows
 > Run with: `python benchmarks/bench.py`
 
 ### Hash Benchmarks — Full Matrix
@@ -86,9 +85,8 @@ uses only ~4–8 MB peak RSS.
 |-----------|-------------|--------------|--------------|---------------|
 | 1         | 1           | 8.5          | 8.0          | 1.0           |
 | 1         | 4           | 9.2          | 8.6          | 4.0           |
-| 2         | 4           | **14.2**     | 11.3         | 4.1           |
-| 4         | 4           | **18.7**     | 13.8         | 4.1           |
-| auto (22) | 1           | **22.3**     | 15.1         | 1.4           |
+| 2         | 4           | 14.2         | 11.3         | 4.1           |
+| 4         | 4           | **18.7**     | **13.8**     | 4.1           |
 
 ### File Encryption — 64 MB (cost=8, single-thread)
 

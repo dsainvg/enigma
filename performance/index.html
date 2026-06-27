@@ -344,6 +344,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -399,6 +403,62 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../try/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Online
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../try/fs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Full Screen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1257,12 +1317,7 @@ On large files the cipher work dominates and additional threads help:</p>
 <tr>
 <td>1 MB</td>
 <td>4</td>
-<td>~18–19 MB/s</td>
-</tr>
-<tr>
-<td>1 MB</td>
-<td>auto(22)</td>
-<td><strong>~22 MB/s</strong></td>
+<td><strong>~18–19 MB/s</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1299,7 +1354,7 @@ uses only ~4–8 MB peak RSS.</p>
 <hr />
 <h2 id="benchmark-results">Benchmark Results<a class="headerlink" href="#benchmark-results" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p><strong>Environment:</strong> Python 3.13.9 / 22-core CPU / Windows
+<p><strong>Environment:</strong> Python 3.13.9 / 4-core CPU / Windows
 Run with: <code>python benchmarks/bench.py</code></p>
 </blockquote>
 <h3 id="hash-benchmarks-full-matrix">Hash Benchmarks — Full Matrix<a class="headerlink" href="#hash-benchmarks-full-matrix" title="Permanent link">&para;</a></h3>
@@ -1479,7 +1534,7 @@ A 512-char password at cost=10 takes ~66 ms; an 8-char password at cost=10 takes
 <tr>
 <td>2</td>
 <td>4</td>
-<td><strong>14.2</strong></td>
+<td>14.2</td>
 <td>11.3</td>
 <td>4.1</td>
 </tr>
@@ -1487,15 +1542,8 @@ A 512-char password at cost=10 takes ~66 ms; an 8-char password at cost=10 takes
 <td>4</td>
 <td>4</td>
 <td><strong>18.7</strong></td>
-<td>13.8</td>
+<td><strong>13.8</strong></td>
 <td>4.1</td>
-</tr>
-<tr>
-<td>auto (22)</td>
-<td>1</td>
-<td><strong>22.3</strong></td>
-<td>15.1</td>
-<td>1.4</td>
 </tr>
 </tbody>
 </table>

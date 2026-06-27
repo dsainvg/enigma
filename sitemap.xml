@@ -2,46 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dsainvg.github.io/enigma/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/cli/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/installation/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/performance/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/python/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/security/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
+    </url>
+    <url>
+         <loc>https://dsainvg.github.io/enigma/try/</loc>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/dev/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/dev/algorithms/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/dev/architecture/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/dev/benchmarks/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
     </url>
     <url>
          <loc>https://dsainvg.github.io/enigma/dev/build/</loc>
-         <lastmod>2026-06-25</lastmod>
+         <lastmod>2026-06-27</lastmod>
+    </url>
+    <url>
+         <loc>https://dsainvg.github.io/enigma/try/fs/</loc>
+         <lastmod>2026-06-27</lastmod>
     </url>
 </urlset>

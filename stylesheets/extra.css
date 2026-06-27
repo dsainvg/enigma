@@ -107,3 +107,31 @@
   color: var(--md-accent-fg-color) !important;
   font-weight: 600;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Try Online Iframe Styling
+   ────────────────────────────────────────────────────────────────────────── */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(129, 140, 248, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  margin-top: 1.5rem;
+  background-color: var(--md-code-bg-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.iframe-container:hover {
+  border-color: rgba(129, 140, 248, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.iframe-container iframe {
+  display: block;
+  width: 100%;
+  height: 850px;
+  border: none;
+}
+

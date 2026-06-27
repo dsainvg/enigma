@@ -340,6 +340,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -394,6 +398,62 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../try/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Online
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../try/fs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Full Screen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1141,7 +1201,7 @@
 </tr>
 <tr>
 <td>CPU cores</td>
-<td>22</td>
+<td>4</td>
 </tr>
 <tr>
 <td>OS</td>
@@ -1585,56 +1645,6 @@
 <td>64.1</td>
 </tr>
 <tr>
-<td>8</td>
-<td>auto(22)</td>
-<td>1</td>
-<td>0.045</td>
-<td>22.3</td>
-<td>0.066</td>
-<td>15.1</td>
-<td>1.4</td>
-</tr>
-<tr>
-<td>8</td>
-<td>auto(22)</td>
-<td>4</td>
-<td>0.051</td>
-<td>19.5</td>
-<td>0.103</td>
-<td>9.7</td>
-<td>4.8</td>
-</tr>
-<tr>
-<td>8</td>
-<td>auto(22)</td>
-<td>16</td>
-<td>0.052</td>
-<td>19.3</td>
-<td>0.055</td>
-<td>18.1</td>
-<td>16.4</td>
-</tr>
-<tr>
-<td>8</td>
-<td>auto(22)</td>
-<td>32</td>
-<td>0.055</td>
-<td>18.3</td>
-<td>0.068</td>
-<td>14.8</td>
-<td>32.4</td>
-</tr>
-<tr>
-<td>8</td>
-<td>auto(22)</td>
-<td>64</td>
-<td>0.065</td>
-<td>15.3</td>
-<td>0.078</td>
-<td>12.7</td>
-<td>64.4</td>
-</tr>
-<tr>
 <td>10</td>
 <td>1</td>
 <td>1</td>
@@ -1673,26 +1683,6 @@
 <td>0.237</td>
 <td>4.2</td>
 <td>7.7</td>
-</tr>
-<tr>
-<td>10</td>
-<td>auto(22)</td>
-<td>1</td>
-<td>0.161</td>
-<td>6.2</td>
-<td>0.182</td>
-<td>5.5</td>
-<td>2.7</td>
-</tr>
-<tr>
-<td>10</td>
-<td>auto(22)</td>
-<td>4</td>
-<td>0.178</td>
-<td>5.6</td>
-<td>0.203</td>
-<td>4.9</td>
-<td>3.5</td>
 </tr>
 </tbody>
 </table>
@@ -1760,7 +1750,6 @@
    66 ms vs 69 ms for an 8-char password. Cost factor is the only meaningful variable.</li>
 <li><strong>Every +2 cost ≈ ×4 slower</strong> — doubly exponential. cost=14 takes ~2 seconds per call.</li>
 <li><strong>Peak RSS scales with buffer size, not file size</strong> — constant-memory streaming is proven.</li>
-<li><strong>1 MB / threads=auto / buf=1MB</strong> gives the best throughput at minimal memory (22 MB/s, 1.4 MB RSS).</li>
 <li><strong>1 MB / threads=4 / buf=4MB</strong> is the sweet spot for typical systems (18.7 MB/s, 4.1 MB RSS).</li>
 </ol>
 
